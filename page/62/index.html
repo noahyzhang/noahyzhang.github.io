@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,105 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-linux/日常笔记/设置core_pattern" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/">日常笔记</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/10/11/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/%E8%AE%BE%E7%BD%AEcore_pattern/">
-            <time datetime="2023-10-11T06:30:35.895Z" itemprop="datePublished">2023-10-11</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/日常笔记/设置core_pattern.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/日常笔记/设置core_pattern.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/日常笔记/设置core_pattern.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/10/11/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/%E8%AE%BE%E7%BD%AEcore_pattern/">设置 core_pattern</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h2 id="设置-core-pattern"><a href="#设置-core-pattern" class="headerlink" title="设置 core_pattern"></a>设置 core_pattern</h2><p>我们的程序 core 之后，我们想要得到 core dump 文件。一般需要设置 core 文件大小；然后设置 core 文件位置。</p>
-<p>使用 <code>ulimit -c</code> 查看 core 文件大小。使用 <code>ulimit -c unlimited</code> 设置允许 core 文件的大小。</p>
-<p>设置 core 文件位置。在 ubuntu 上，</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/sysctl.conf</span><br><span class="line">向这个文件写入</span><br><span class="line">kernel.core_pattern = ./core.%e.%p.%t</span><br><span class="line">sudo sysctl -p</span><br></pre></td></tr></table></figure>
-
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/10/11/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/%E8%AE%BE%E7%BD%AEcore_pattern/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-linux/日常笔记/降级安装gcc" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3506,6 +3407,98 @@
         
             <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">slub </span><br><span class="line">http://www.wowotech.net/memory_management/427.html</span><br><span class="line">https://heapdump.cn/article/5609668</span><br><span class="line"></span><br><span class="line">mmap 和 madvise 的使用：https://www.cnblogs.com/wlzy/p/10665472.html</span><br><span class="line"></span><br><span class="line">mallopt 控制内存分配的函数：https://blog.csdn.net/u013920085/article/details/52847464</span><br></pre></td></tr></table></figure>
 
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-linux/内存管理/编译选项注意" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">内存管理</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/10/11/linux/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9%E6%B3%A8%E6%84%8F/">
+            <time datetime="2023-10-11T06:30:35.800Z" itemprop="datePublished">2023-10-11</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/内存管理/编译选项注意.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/内存管理/编译选项注意.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/内存管理/编译选项注意.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/10/11/linux/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9%E6%B3%A8%E6%84%8F/">使用第三方内存管理库时编译选项</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+            
+        
+        
+            <h2 id="使用第三方内存管理库时编译选项"><a href="#使用第三方内存管理库时编译选项" class="headerlink" title="使用第三方内存管理库时编译选项"></a>使用第三方内存管理库时编译选项</h2><p>当使用第三方内存管理库（jemalloc、tcmalloc）时，用  gcc 来编译项目时，建议加上：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-fno-builtin-malloc</span><br><span class="line">-fno-builtin-calloc</span><br><span class="line">-fno-builtin-realloc</span><br><span class="line">-fno-builtin-free</span><br></pre></td></tr></table></figure>
+
+<p>这是阻止编译器优化时使用内置版本的 <code>malloc、calloc、realloc、free</code> 函数。</p>
 
             </div>
         

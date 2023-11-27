@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,95 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-linux/日常笔记/vim配置" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/">日常笔记</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/01/19/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/vim%E9%85%8D%E7%BD%AE/">
-            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/日常笔记/vim配置.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/日常笔记/vim配置.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/日常笔记/vim配置.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/01/19/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/vim%E9%85%8D%E7%BD%AE/">undefined</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-            
-        
-        
-            <h1 id="vim配置"><a href="#vim配置" class="headerlink" title="vim配置"></a>vim配置</h1><p>github上一个很好的项目：<a target="_blank" rel="noopener" href="https://github.com/chxuan/vimplus">https://github.com/chxuan/vimplus</a></p>
-<h5 id="自己配的vimplus的帮助手册在：F-各种文档-help-md"><a href="#自己配的vimplus的帮助手册在：F-各种文档-help-md" class="headerlink" title="自己配的vimplus的帮助手册在：F:\各种文档\help.md"></a>自己配的vimplus的帮助手册在：F:\各种文档\help.md</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">#set nocompatible</span><br><span class="line"># 打开语法高亮</span><br><span class="line">syntax on</span><br><span class="line"># 在底部显示当前模式 </span><br><span class="line">set showmode </span><br><span class="line"># 命令模式下显示键入的指令</span><br><span class="line">set showcmd</span><br><span class="line"># 支持使用鼠标</span><br><span class="line">set mouse=a</span><br><span class="line"># 使用utf-8编码</span><br><span class="line">set encoding=utf-8</span><br><span class="line"># 启用256色</span><br><span class="line">set t_Co=256</span><br><span class="line"># 开启文件类型检查，并且载入与该类型对应的缩进规则(如.py 文件会去找~/.vim/indent/python.vim)</span><br><span class="line">filetype indent on</span><br><span class="line"></span><br><span class="line"># 下一行的缩进更上一行保持一致</span><br><span class="line">set autoindent</span><br><span class="line"># 按下Tab会显示vim的空格数</span><br><span class="line">set tabstop=2</span><br><span class="line"># 文本上按下&gt;&gt;(增加一级缩进) &lt;&lt;(取消一级缩进) ==(取消全部缩进)</span><br><span class="line">set expandtab</span><br><span class="line"># Tab 转为多少空格</span><br><span class="line">set softtabstop=2</span><br><span class="line"># 显示行号</span><br><span class="line"># set number</span><br><span class="line"># 显示光标所在行的行号，其它行都为相对改行的行号</span><br><span class="line"># set relativenumber</span><br><span class="line"># 光标所在的当前行高亮</span><br><span class="line"># set cursorline</span><br><span class="line"># 设置行宽</span><br><span class="line">#set textwidth=80</span><br><span class="line"># 自动拆行,关闭用set nowtap </span><br><span class="line">set wrap</span><br><span class="line"># 遇到指定符号(如空格)才拆行</span><br><span class="line">set linebreak</span><br><span class="line"># 指定拆行与编辑窗口右边缘之间空出的字符数</span><br><span class="line">set wrapmargin=2</span><br><span class="line"># 垂直滚动时，光标距离顶部或者底部的位置</span><br><span class="line">set scrolloff=15</span><br><span class="line"># 水平滚动时，光标距离行首或行尾的位置(不拆行时有用)</span><br><span class="line">set sidescrolloff=5</span><br><span class="line"># 是否显示状态栏。0 表示不显示，1 表示只在多窗口时显示，2 表示显示</span><br><span class="line">set laststatus=2</span><br><span class="line">#在状态栏显示光标的当前位置（位于哪一行哪一列）</span><br><span class="line">set ruler</span><br><span class="line">#光标遇到圆括号、方括号、大括号时，自动高亮对应的另一个圆括号、方括号和大括号</span><br><span class="line">set showmatch</span><br><span class="line"># 搜索时，高亮显示匹配结果</span><br><span class="line">set hlsearch</span><br><span class="line"># 输入搜索模式时，每输入一个字符，就自动跳到第一个匹配的结果</span><br><span class="line"># set incsearch</span><br><span class="line"># 搜索时忽略大小写</span><br><span class="line"># set smartcase</span><br><span class="line"># 打开英语单词的拼写检查</span><br><span class="line"># set spell spelllang=en_us</span><br><span class="line"># 出错时，发出视觉提示，通常是屏幕闪烁</span><br><span class="line">set visualbell</span><br><span class="line">set paste</span><br></pre></td></tr></table></figure>
-
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-linux/日常笔记/wrk测试工具使用" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3685,6 +3596,99 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2023/01/19/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/%E3%80%90linux%E5%B0%B1%E8%AF%A5%E8%BF%99%E4%B9%88%E5%AD%A6%E6%80%BB%E7%BB%93%E3%80%91%E4%B8%80%E4%BA%9B%E5%90%8D%E8%AF%8D%E7%9A%84%E8%A7%A3%E6%9E%90%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%91%BD%E4%BB%A4/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-linux/日常笔记/创建文件权限umask" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/">日常笔记</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/01/19/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90umask/">
+            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/日常笔记/创建文件权限umask.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/日常笔记/创建文件权限umask.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/日常笔记/创建文件权限umask.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/01/19/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90umask/">undefined</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+            
+        
+        
+            <p>创建文件时，文件权限的设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">umask 用来设置新文件权限的掩码。当问文件被创建时，其最初的权限由文件创建掩码决定。</span><br><span class="line">关系为 mode &amp; ~umask </span><br><span class="line">umask 命令可以查看当前系统的 umask 值</span><br><span class="line">在代码中使用 umask(0000); 设置之后，并不会改变系统的 umask 值，只会临时改变 umask 值。</span><br></pre></td></tr></table></figure>
+
+
             </div>
         
         <footer class="article-footer">

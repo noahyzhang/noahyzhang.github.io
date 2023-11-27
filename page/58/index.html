@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,60 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-工具/profiler/mem-profiler/mem-profiler工具说明" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h2 id="mem-profiler-工具说明"><a href="#mem-profiler-工具说明" class="headerlink" title="mem-profiler 工具说明"></a>mem-profiler 工具说明</h2><h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><p>此工具可以分析内存是被那些函数使用了。原理是每分配一定内存就去采样内存分配调用处的堆栈。最后按照堆栈的函数调用关系汇总成我们想要的结果图。</p>
-<p>实际依赖 jemalloc、libunwind 来获取函数调用的堆栈，通过共享内存作为媒介来实现不同进程之间的通信，也即使用 jemalloc 的进程为我们测试进程，mem-profiler 进程可以操作共享内存，修改数据，以达到与测试进程之间交互的目的；最终实现实时的控制启动、停止内存详细信息的收集处理任务。</p>
-<h3 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h3><h4 id="1-配置待测试进程"><a href="#1-配置待测试进程" class="headerlink" title="1. 配置待测试进程"></a>1. 配置待测试进程</h4><p>使用 jemalloc 作为我们的内存分配管理库，并且使用我们改写优化后的 jemalloc 。库地址：<a target="_blank" rel="noopener" href="https://console.cloud.baidu-int.com/devops/icode/repos/baidu/adu-3rd/jemalloc/blob/mem_profiler_x86_64_ubuntu18_gcc750_v5.2.1/README.md">https://console.cloud.baidu-int.com/devops/icode/repos/baidu/adu-3rd/jemalloc/blob/mem_profiler_x86_64_ubuntu18_gcc750_v5.2.1/README.md</a></p>
-<p>请查看分支名，获取不同 cpu 架构、不同 gcc 版本编译的 libjemalloc 库。其中带 mem_profiler 前缀的即为所需的库。</p>
-<p>为了工具的可插拔性，我们一般推荐使用 LD_PRELOAD 的方式加载 libjemalloc.so。比如 AVP-ANP2 项目中的添加方式，查看 start_all_modules.bash 文件中的 use_jemalloc 函数的实现。链接：<a target="_blank" rel="noopener" href="https://console.cloud.baidu-int.com/devops/icode/repos/baidu/asd/AVP-ANP2/blob/dev_pangu/onboard/bin/start_all_modules.bash">https://console.cloud.baidu-int.com/devops/icode/repos/baidu/asd/AVP-ANP2/blob/dev_pangu/onboard/bin/start_all_modules.bash</a></p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/10/11/%E5%B7%A5%E5%85%B7/profiler/mem-profiler/mem-profiler%E5%B7%A5%E5%85%B7%E8%AF%B4%E6%98%8E/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-工具/gcc/安装指定版本" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3503,6 +3449,105 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2023/10/11/%E5%B7%A5%E5%85%B7/gdb/%E6%9F%A5%E7%9C%8B%E5%86%85%E5%AD%98%E6%95%B0%E6%8D%AE/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-工具/gdb/调试线程" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E5%B7%A5%E5%85%B7/">工具</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E5%B7%A5%E5%85%B7/gdb/">gdb</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/10/11/%E5%B7%A5%E5%85%B7/gdb/%E8%B0%83%E8%AF%95%E7%BA%BF%E7%A8%8B/">
+            <time datetime="2023-10-11T06:30:35.933Z" itemprop="datePublished">2023-10-11</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/工具/gdb/调试线程.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/工具/gdb/调试线程.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/工具/gdb/调试线程.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/10/11/%E5%B7%A5%E5%85%B7/gdb/%E8%B0%83%E8%AF%95%E7%BA%BF%E7%A8%8B/">利用 gdb 调试线程</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="使用-gdb-调试线程"><a href="#使用-gdb-调试线程" class="headerlink" title="使用 gdb 调试线程"></a>使用 gdb 调试线程</h2><p>本文通过实践来说明 gdb 如何调试多线程。</p>
+<p>如下的程序我们在主程序中先创建两个线程，这两个线程分别打印自己的线程 ID。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span>* <span class="title">pthread_run1</span><span class="params">(<span class="type">void</span>*)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;I am thread1,ID: %lu\n&quot;</span>, <span class="built_in">pthread_self</span>());</span><br><span class="line">        <span class="built_in">sleep</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span>* <span class="title">pthread_run2</span><span class="params">(<span class="type">void</span>*)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;I am thread2,ID: %lu\n&quot;</span>, <span class="built_in">pthread_self</span>());</span><br><span class="line">        <span class="built_in">sleep</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">pthread_t</span> tid1;</span><br><span class="line">    <span class="type">pthread_t</span> tid2;</span><br><span class="line">    <span class="built_in">pthread_create</span>(&amp;tid1, <span class="literal">NULL</span>, pthread_run1, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="built_in">pthread_create</span>(&amp;tid2, <span class="literal">NULL</span>, pthread_run2, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;I am main thread\n&quot;</span>);</span><br><span class="line">    <span class="built_in">pthread_join</span>(tid1, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="built_in">pthread_join</span>(tid2, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以通过 <code>ps -eLf | grep xxx</code> 来查看进程 ID 和 线程 ID。或者通过 <code>pstree -p 主线程id</code> 查看主线程和子线程之间的关系。</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2023/10/11/%E5%B7%A5%E5%85%B7/gdb/%E8%B0%83%E8%AF%95%E7%BA%BF%E7%A8%8B/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

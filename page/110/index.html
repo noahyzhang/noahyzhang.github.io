@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,110 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-架构框架/极客-架构/高性能架构模式/高性能NoSQL" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E6%9E%B6%E6%9E%84%E6%A1%86%E6%9E%B6/">架构框架</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%9E%B6%E6%9E%84%E6%A1%86%E6%9E%B6/%E6%9E%81%E5%AE%A2-%E6%9E%B6%E6%9E%84/">极客-架构</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%9E%B6%E6%9E%84%E6%A1%86%E6%9E%B6/%E6%9E%81%E5%AE%A2-%E6%9E%B6%E6%9E%84/%E9%AB%98%E6%80%A7%E8%83%BD%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F/">高性能架构模式</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/01/19/%E6%9E%B6%E6%9E%84%E6%A1%86%E6%9E%B6/%E6%9E%81%E5%AE%A2-%E6%9E%B6%E6%9E%84/%E9%AB%98%E6%80%A7%E8%83%BD%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F/%E9%AB%98%E6%80%A7%E8%83%BDNoSQL/">
-            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/架构框架/极客-架构/高性能架构模式/高性能NoSQL.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/架构框架/极客-架构/高性能架构模式/高性能NoSQL.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/架构框架/极客-架构/高性能架构模式/高性能NoSQL.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/01/19/%E6%9E%B6%E6%9E%84%E6%A1%86%E6%9E%B6/%E6%9E%81%E5%AE%A2-%E6%9E%B6%E6%9E%84/%E9%AB%98%E6%80%A7%E8%83%BD%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F/%E9%AB%98%E6%80%A7%E8%83%BDNoSQL/">undefined</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h3 id="三、高性能NoSQL"><a href="#三、高性能NoSQL" class="headerlink" title="三、高性能NoSQL"></a>三、高性能NoSQL</h3><p>关系型数据库存在的缺点</p>
-<ol>
-<li>关系型数据库存储的是行记录，无法存储数据结构（例有序数组）</li>
-<li>关系型数据库的 schema 扩展很不方便，表结构 schema 是强约束，操作不存在的列会保错；业务变化时扩充列比较麻烦，需要执行DDL（data definition language，如 CREATE、ALTER、DROP 等）语句修改，而且修改时间会长时间锁表（MySQL 可能锁表 1 个小时）</li>
-<li>关系型数据库在大数据场景下 I&#x2F;O 高。因为即使只针对其中某一列进行运算，关系型数据库也会将整行数据从存储设备读入内存</li>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/01/19/%E6%9E%B6%E6%9E%84%E6%A1%86%E6%9E%B6/%E6%9E%81%E5%AE%A2-%E6%9E%B6%E6%9E%84/%E9%AB%98%E6%80%A7%E8%83%BD%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F/%E9%AB%98%E6%80%A7%E8%83%BDNoSQL/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-架构框架/极客-架构/高性能架构模式/高性能负载均衡" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3689,6 +3585,91 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2023/01/19/%E7%AE%97%E6%B3%95/%E6%9C%AA%E6%80%BB%E7%BB%93/%E5%B7%A6%E7%A8%8B%E4%BA%91%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-算法/未总结/左程云算法/动态规划" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/%E6%9C%AA%E6%80%BB%E7%BB%93/">未总结</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/%E6%9C%AA%E6%80%BB%E7%BB%93/%E5%B7%A6%E7%A8%8B%E4%BA%91%E7%AE%97%E6%B3%95/">左程云算法</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/01/19/%E7%AE%97%E6%B3%95/%E6%9C%AA%E6%80%BB%E7%BB%93/%E5%B7%A6%E7%A8%8B%E4%BA%91%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/算法/未总结/左程云算法/动态规划.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/算法/未总结/左程云算法/动态规划.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/算法/未总结/左程云算法/动态规划.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/01/19/%E7%AE%97%E6%B3%95/%E6%9C%AA%E6%80%BB%E7%BB%93/%E5%B7%A6%E7%A8%8B%E4%BA%91%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">undefined</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+            
+        
+        
+            <p>暴力递归 -&gt; 记忆化搜索 -&gt; 简单DP -&gt; 优化 DP</p>
+
             </div>
         
         <footer class="article-footer">

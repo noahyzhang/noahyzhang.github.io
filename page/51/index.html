@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,94 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-算法/刷题目/字符串/URL反转" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/%E5%88%B7%E9%A2%98%E7%9B%AE/">刷题目</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/%E5%88%B7%E9%A2%98%E7%9B%AE/%E5%AD%97%E7%AC%A6%E4%B8%B2/">字符串</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/10/11/%E7%AE%97%E6%B3%95/%E5%88%B7%E9%A2%98%E7%9B%AE/%E5%AD%97%E7%AC%A6%E4%B8%B2/URL%E5%8F%8D%E8%BD%AC/">
-            <time datetime="2023-10-11T06:30:36.004Z" itemprop="datePublished">2023-10-11</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/算法/刷题目/字符串/URL反转.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/算法/刷题目/字符串/URL反转.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/算法/刷题目/字符串/URL反转.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/10/11/%E7%AE%97%E6%B3%95/%E5%88%B7%E9%A2%98%E7%9B%AE/%E5%AD%97%E7%AC%A6%E4%B8%B2/URL%E5%8F%8D%E8%BD%AC/">URL反转</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-            
-        
-        
-            <h3 id="一、URL反转"><a href="#一、URL反转" class="headerlink" title="一、URL反转"></a>一、URL反转</h3><p>给你一个url，反转。</p>
-<p>如 <code>https://www.baidu.com/dev-ops/question</code>，反转后结果为 <code>https://question/ops-dev/com.baidu.www</code></p>
-<h3 id="二、分析"><a href="#二、分析" class="headerlink" title="二、分析"></a>二、分析</h3><p>此题目是按照 <code>/</code> 来反转的，而且要排除掉 <code>https://</code>。所以我们先对 <code>www.baidu.com/dev-ops/question</code> 这部分全部反转，然后在每隔 <code>/</code> 作为一个分隔，进行反转即可</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    void reserve_str(std::string&amp; url) &#123;</span><br><span class="line">        int left = 0, right = url.size()-1;</span><br><span class="line">        int count = 0;</span><br><span class="line">        while (count != 2) &#123;</span><br><span class="line">            if (url[left] == &#x27;/&#x27;) &#123;</span><br><span class="line">                count++;</span><br><span class="line">            &#125;</span><br><span class="line">            left++;</span><br><span class="line">        &#125;</span><br><span class="line">        int pos = left;</span><br><span class="line">        // 先全部反转</span><br><span class="line">        while (left &lt; right) &#123;</span><br><span class="line">            std::swap(url[left++], url[right--]);</span><br><span class="line">        &#125;</span><br><span class="line">        left = pos;</span><br><span class="line">        for (int i = left; i &lt; url.size(); i++) &#123;</span><br><span class="line">            if (url[i] == &#x27;/&#x27; || i == url.size()-1) &#123;</span><br><span class="line">                right = i == url.size()-1 ? i : i-1;</span><br><span class="line">                while (left &lt; right) &#123;</span><br><span class="line">                    std::swap(url[left++], url[right--]);</span><br><span class="line">                &#125;</span><br><span class="line">                left = i+1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-算法/刷题目/字符串/manacher算法-字符串的最长回文子串" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3661,6 +3573,105 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2023/10/11/%E7%AE%97%E6%B3%95/%E5%88%B7%E9%A2%98%E7%9B%AE/%E5%85%B6%E4%BB%96%E9%A2%98%E7%9B%AE/%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-算法/刷题目/其他题目/从5随机到7随机及其扩展" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/%E5%88%B7%E9%A2%98%E7%9B%AE/">刷题目</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/%E5%88%B7%E9%A2%98%E7%9B%AE/%E5%85%B6%E4%BB%96%E9%A2%98%E7%9B%AE/">其他题目</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/10/11/%E7%AE%97%E6%B3%95/%E5%88%B7%E9%A2%98%E7%9B%AE/%E5%85%B6%E4%BB%96%E9%A2%98%E7%9B%AE/%E4%BB%8E5%E9%9A%8F%E6%9C%BA%E5%88%B07%E9%9A%8F%E6%9C%BA%E5%8F%8A%E5%85%B6%E6%89%A9%E5%B1%95/">
+            <time datetime="2023-10-11T06:30:36.003Z" itemprop="datePublished">2023-10-11</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/算法/刷题目/其他题目/从5随机到7随机及其扩展.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/算法/刷题目/其他题目/从5随机到7随机及其扩展.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/算法/刷题目/其他题目/从5随机到7随机及其扩展.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/10/11/%E7%AE%97%E6%B3%95/%E5%88%B7%E9%A2%98%E7%9B%AE/%E5%85%B6%E4%BB%96%E9%A2%98%E7%9B%AE/%E4%BB%8E5%E9%9A%8F%E6%9C%BA%E5%88%B07%E9%9A%8F%E6%9C%BA%E5%8F%8A%E5%85%B6%E6%89%A9%E5%B1%95/">从5随机到7随机及其扩展</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="从5随机到7随机及其扩展"><a href="#从5随机到7随机及其扩展" class="headerlink" title="从5随机到7随机及其扩展"></a>从5随机到7随机及其扩展</h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给定一个等概率随机产生 <code>1 - 5</code> 的随机函数 <code>rand1To5</code>。如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int rand1To5() &#123;</span><br><span class="line">	return (int)((random() * 5) + 1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>除此之外，不能使用任何额外的随机机制，请用 rand1To5 实现等概率随机产生 <code>1-7</code> 的随机函数 <code>rand1To7</code></p>
+<h3 id="二、解析"><a href="#二、解析" class="headerlink" title="二、解析"></a>二、解析</h3><p>先解决原问题，具体步骤如下：</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2023/10/11/%E7%AE%97%E6%B3%95/%E5%88%B7%E9%A2%98%E7%9B%AE/%E5%85%B6%E4%BB%96%E9%A2%98%E7%9B%AE/%E4%BB%8E5%E9%9A%8F%E6%9C%BA%E5%88%B07%E9%9A%8F%E6%9C%BA%E5%8F%8A%E5%85%B6%E6%89%A9%E5%B1%95/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

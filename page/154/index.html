@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,110 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-数据库/release/mysql导入数据" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE/" rel="tag">导入数据</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2021/03/07/%E6%95%B0%E6%8D%AE%E5%BA%93/release/mysql%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE/">
-            <time datetime="2021-03-07T12:19:17.000Z" itemprop="datePublished">2021-03-07</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/数据库/release/mysql导入数据.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/数据库/release/mysql导入数据.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/数据库/release/mysql导入数据.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2021/03/07/%E6%95%B0%E6%8D%AE%E5%BA%93/release/mysql%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE/">Mysql导入数据</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h2 id="mysql-的导入数据"><a href="#mysql-的导入数据" class="headerlink" title="mysql 的导入数据"></a>mysql 的导入数据</h2><h3 id="一、mysql命令导入数据"><a href="#一、mysql命令导入数据" class="headerlink" title="一、mysql命令导入数据"></a>一、mysql命令导入数据</h3><p>使用 mysql 命令导入语法格式为：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h `host` -P `port` -u `user` -p `passwd`  &lt;  data.sql</span><br></pre></td></tr></table></figure>
-
-<h3 id="二、source-命令导入"><a href="#二、source-命令导入" class="headerlink" title="二、source 命令导入"></a>二、source 命令导入</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash">create database abc;      <span class="comment"># 创建数据库</span></span></span><br><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash">use abc;                  <span class="comment"># 使用已创建的数据库</span></span> </span><br><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash"><span class="built_in">set</span> names utf8;           <span class="comment"># 设置编码</span></span></span><br><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash"><span class="built_in">source</span> /home/abc/abc.sql  <span class="comment"># 导入备份数据库</span></span></span><br></pre></td></tr></table></figure>
-
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2021/03/07/%E6%95%B0%E6%8D%AE%E5%BA%93/release/mysql%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-数据库/release/mysql磁盘存储浅析" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3688,6 +3584,110 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2021/03/07/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80/release/%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%92%8CGOPATH/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-编程语言/go语言/release/日志包" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/go/" rel="tag">go</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2021/03/07/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80/release/%E6%97%A5%E5%BF%97%E5%8C%85/">
+            <time datetime="2021-03-07T12:19:17.000Z" itemprop="datePublished">2021-03-07</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/编程语言/go语言/release/日志包.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/编程语言/go语言/release/日志包.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/编程语言/go语言/release/日志包.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2021/03/07/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80/release/%E6%97%A5%E5%BF%97%E5%8C%85/">go语言日志</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="Go日志"><a href="#Go日志" class="headerlink" title="Go日志"></a>Go日志</h2><h3 id="一、log包"><a href="#一、log包" class="headerlink" title="一、log包"></a>一、log包</h3><p>log日志包会默认为输出带上时间，我们也可以自定义我们的日志抬头信息</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义抬头信息为：时间+文件名+源代码所在行号</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">	log.SetFlags(log.Ldate | log.Lshortfile)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>log包提供的可定义的选项常量</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	Ldate         = <span class="number">1</span> &lt;&lt; <span class="literal">iota</span>     <span class="comment">//日期示例： 2009/01/23</span></span><br><span class="line">	Ltime                         <span class="comment">//时间示例: 01:23:23</span></span><br><span class="line">	Lmicroseconds                 <span class="comment">//毫秒示例: 01:23:23.123123.</span></span><br><span class="line">	Llongfile                     <span class="comment">//绝对路径和行号: /a/b/c/d.go:23</span></span><br><span class="line">	Lshortfile                    <span class="comment">//文件和行号: d.go:23.</span></span><br><span class="line">	LUTC                          <span class="comment">//日期时间转为0时区的</span></span><br><span class="line">	LstdFlags     = Ldate | Ltime <span class="comment">//Go提供的标准抬头信息</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2021/03/07/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80/release/%E6%97%A5%E5%BF%97%E5%8C%85/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

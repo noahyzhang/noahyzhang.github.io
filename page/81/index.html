@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,110 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-linux/重难点/上下文切换" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/%E9%87%8D%E9%9A%BE%E7%82%B9/">重难点</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/01/19/linux/%E9%87%8D%E9%9A%BE%E7%82%B9/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2/">
-            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/重难点/上下文切换.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/重难点/上下文切换.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/重难点/上下文切换.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/01/19/linux/%E9%87%8D%E9%9A%BE%E7%82%B9/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2/">undefined</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h2 id="一、CPU上下文"><a href="#一、CPU上下文" class="headerlink" title="一、CPU上下文"></a>一、CPU上下文</h2><p>CPU执行任务需要知道从哪里开始，也就是说，需要系统帮它设置好CPU寄存器和程序计数器。<br>CPU寄存器是CPU内置的容量小、速度极快的内存。程序计数器用来存储CPU正在执行的指令位置、或者即将执行的下一条指令位置。他们都是CPU在运行任务前，必须的依赖环境，也叫做CPU上下文。<br>那么，CPU上下文切换就是先把一个任务的CPU上下文(CPU寄存器和程序计数器)保存起来，然后加载新任务的上下文到这些寄存器和程序计数器，最后再跳转到程序计数器所指的新位置，运行新任务。<br>而这些保存下来的上下文，会存储在系统内核中，并在任务重新调度执行时再次加载进来。这样就保证任务原来的状态不受影响。</p>
-<p>而根据任务的不同，CPU上下文分为：进程上下文切换、线程上下文切换以及中断上下文切换。</p>
-<h3 id="1-进程上下文切换"><a href="#1-进程上下文切换" class="headerlink" title="1. 进程上下文切换"></a>1. 进程上下文切换</h3><p>如果让应用程序随便访问内存太危险了，因此按照CPU指令的重要程度对指令进行了分级，指令分为四个级别：Ring0-Ring3。<br>Linux只使用了 Ring0 和 Ring3 这两个运行级别。<br>进程运行在 Ring3 级别时被称为用户态，指令只能访问用户空间，被执行的代码要受到CPU很多检查；运行在 Ring0 级别时被称为内核态，可以执行任何指令，访问任何内存空间。<br>从用户态到内核态的转变，需要通过系统调用来完成。系统调用的过程会发生CPU上下文切换。<br>CPU寄存器中原来用户态的指令位置，需要先保存起来，然后更新为内核态指令的新位置，执行内核态代码；相反，从内核态切换到用户态也需要进行CPU上下文切换。因此，一次系统调用过程，发生了两次CPU上下文切换。</p>
-<p>进程的上下文包括虚拟内存、栈、全局变量等用户空间的资源，还包括了内核堆栈、寄存器等内核空间的状态。<br>而保存上下文和恢复上下文的过程是需要内核在CPU上运行才能完成的。而根据 Tsuna (<a target="_blank" rel="noopener" href="https://blog.tsunanet.net/2010/11/how-long-does-it-take-to-make-context.html">https://blog.tsunanet.net/2010/11/how-long-does-it-take-to-make-context.html</a>) 的测试报告，每次上下文切换都需要几十纳秒到数微妙的CPU时间。因此，如果进程上下文切换次数较多的情况下，很容易导致CPU将大量时间耗费在寄存器、内核栈以及虚拟内存等资源的保存和恢复上，进而大大缩短了真正运行进程的时间。</p>
-<p>Linux 下每个CPU都有一个就绪队列，将活跃进程（即正在运行和正在等待CPU的进程）按照优先级和等待 CPU 的时间排序，然后选择最需要 CPU 的进程，也就是优先级最高和等待CPU时间最长的进程来运行。</p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/01/19/linux/%E9%87%8D%E9%9A%BE%E7%82%B9/%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-linux/重难点/内存什么时候释放" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3676,6 +3572,110 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2023/01/19/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%9F%BA%E7%A1%80/MySQL%E5%AD%97%E7%AC%A6%E9%9B%86/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-数据库/基础/Mysql的存储引擎" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%9F%BA%E7%A1%80/">基础</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/01/19/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%9F%BA%E7%A1%80/Mysql%E7%9A%84%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/">
+            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/数据库/基础/Mysql的存储引擎.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/数据库/基础/Mysql的存储引擎.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/数据库/基础/Mysql的存储引擎.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/01/19/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%9F%BA%E7%A1%80/Mysql%E7%9A%84%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/">undefined</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="Mysql的存储引擎"><a href="#Mysql的存储引擎" class="headerlink" title="Mysql的存储引擎"></a>Mysql的存储引擎</h2><h3 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h3><p>使用 <code>show engines;</code> 查看支持的引擎，常见的存储引擎</p>
+<table>
+<thead>
+<tr>
+<th>存储引擎</th>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2023/01/19/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%9F%BA%E7%A1%80/Mysql%E7%9A%84%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

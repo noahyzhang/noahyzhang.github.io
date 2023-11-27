@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,110 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-linux/日常笔记/libc库误删解决办法" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/">日常笔记</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/01/19/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/libc%E5%BA%93%E8%AF%AF%E5%88%A0%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
-            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/日常笔记/libc库误删解决办法.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/日常笔记/libc库误删解决办法.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/日常笔记/libc库误删解决办法.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/01/19/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/libc%E5%BA%93%E8%AF%AF%E5%88%A0%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">undefined</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h3 id="libc-so-6-库误删了如何解决？"><a href="#libc-so-6-库误删了如何解决？" class="headerlink" title="libc.so.6 库误删了如何解决？"></a>libc.so.6 库误删了如何解决？</h3><p>glibc是GNU发布的libc库，即c运行库。glibc是linux系统中最底层的api，几乎其它任何运行库都会依赖于glibc。glibc除了封装linux操作系统所提供的系统服务外，它本身也提供了许多其它一些必要功能服务的实现。由于 glibc 囊括了几乎所有的 UNIX 通行的标准，可以想见其内容包罗万象。而就像其他的 UNIX 系统一样，其内含的档案群分散于系统的树状目录结构中，像一个支架一般撑起整个作业系统。在 GNU&#x2F;Linux 系统中，其C函式库发展史点出了GNU&#x2F;Linux 演进的几个重要里程碑，用 glibc 作为系统的C函式库，是GNU&#x2F;Linux演进的一个重要里程碑。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[/usr/bin] ldd ./ls</span><br><span class="line">       linux-vdso.so.1 =&gt;  (0x00007ffc8e7e0000)</span><br><span class="line">       /$LIB/libonion.so =&gt; /lib64/libonion.so (0x00007f8b6f67c000)</span><br><span class="line">       libselinux.so.1 =&gt; /usr/lib64/libselinux.so.1 (0x00007f8b6f33c000)</span><br><span class="line">       libcap.so.2 =&gt; /usr/lib64/libcap.so.2 (0x00007f8b6f137000)</span><br><span class="line">       libacl.so.1 =&gt; /usr/lib64/libacl.so.1 (0x00007f8b6ef2e000)</span><br><span class="line">       libc.so.6 =&gt; /usr/lib64/libc.so.6 (0x00007f8b6eb60000)</span><br><span class="line">       libdl.so.2 =&gt; /usr/lib64/libdl.so.2 (0x00007f8b6e95c000)</span><br><span class="line">       libpcre.so.1 =&gt; /usr/lib64/libpcre.so.1 (0x00007f8b6e6fa000)</span><br><span class="line">       /lib64/ld-linux-x86-64.so.2 (0x00007f8b6f563000)</span><br><span class="line">       libattr.so.1 =&gt; /usr/lib64/libattr.so.1 (0x00007f8b6e4f5000)</span><br><span class="line">       libpthread.so.0 =&gt; /usr/lib64/libpthread.so.0 (0x00007f8b6e2d9000)</span><br></pre></td></tr></table></figure>
-
-<h4 id="1-LD-PRELOAD-介绍"><a href="#1-LD-PRELOAD-介绍" class="headerlink" title="1. LD_PRELOAD 介绍"></a>1. LD_PRELOAD 介绍</h4><p><code>LD_PRELOAD</code> 是 <code>Linux</code> 系统的一个环境变量，它可以影响程序的运行时的链接（Runtime linker），它允许你定义在程序运行前优先加载的动态链接库。这个功能主要就是用来有选择性的载入不同动态链接库中的相同函数。通过这个环境变量，我们可以在主程序和其动态链接库的中间加载别的动态链接库，甚至覆盖正常的函数库。一方面，我们可以以此功能来使用自己的或是更好的函数（无需别人的源码），而另一方面，我们也可以以向别人的程序注入程序，从而达到特定的目的。</p>
-<p>举一个例子来详细说明下，我们现在有一个 <code>libmystrcmp.so</code> 的文件和一个测试文件 <code>main.c</code>。如下</p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/01/19/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/libc%E5%BA%93%E8%AF%AF%E5%88%A0%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-linux/日常笔记/linux_manpage" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3711,6 +3607,110 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2023/01/19/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/linux_%E7%9A%84%E4%B8%80%E4%BA%9B%E5%87%BD%E6%95%B0/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-linux/日常笔记/linux下的tempfs文件系统和-dev-shm目录" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/">日常笔记</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/01/19/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/linux%E4%B8%8B%E7%9A%84tempfs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%92%8C-dev-shm%E7%9B%AE%E5%BD%95/">
+            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/日常笔记/linux下的tempfs文件系统和-dev-shm目录.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/日常笔记/linux下的tempfs文件系统和-dev-shm目录.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/日常笔记/linux下的tempfs文件系统和-dev-shm目录.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/01/19/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/linux%E4%B8%8B%E7%9A%84tempfs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%92%8C-dev-shm%E7%9B%AE%E5%BD%95/">undefined</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h1 id="linux下的tempfs文件系统和-dev-shm目录"><a href="#linux下的tempfs文件系统和-dev-shm目录" class="headerlink" title="linux下的tempfs文件系统和&#x2F;dev&#x2F;shm目录"></a>linux下的tempfs文件系统和&#x2F;dev&#x2F;shm目录</h1><h1 id="Linux系统tempfs和-dev-shm解析"><a href="#Linux系统tempfs和-dev-shm解析" class="headerlink" title="Linux系统tempfs和&#x2F;dev&#x2F;shm解析"></a>Linux系统tempfs和&#x2F;dev&#x2F;shm解析</h1><h2 id="一、tempfs文件系统"><a href="#一、tempfs文件系统" class="headerlink" title="一、tempfs文件系统"></a>一、tempfs文件系统</h2><p>文件系统有两种变体，称为_shm_和 _tmpfs_。它们都共享核心功能，并且主要用途不同。内核使用<code>shm</code>为匿名页面创建文件支持，并为<code>shmge()</code>创建的区域提供支持。该文件系统由<code>kern_mount（）</code>挂载这样它就可以在内部安装并且对用户不可见。<code>tmpfs</code>是一个临时文件系统，可以选择将其安装在&#x2F;tmp&#x2F;上，以具有基于RAM的快速临时文件系统。<code>tmpfs</code>的第二个用途 是将其安装在 &#x2F;dev&#x2F;shm&#x2F; 上。tmpfs文件系统中<code>mmap()</code>文件的进程将能够在它们之间共享信息，以作为System V IPC机制的替代方法。</p>
+<p>tempfs是驻留在内存或交换分区中的临时文件系统。将目录挂载为tempfs是加快对其文件访问速度的有效方法。传统的虚拟磁盘是一个块设备，但tempfs是一个文件系统，而不是块设备，只需要安装它，就可以使用了。</p>
+<p>tempfs的用途</p>
+<ul>
+<li>总会有一个内核内部挂载，也许我们看不到，可能用于共享内存等</li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2023/01/19/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/linux%E4%B8%8B%E7%9A%84tempfs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%92%8C-dev-shm%E7%9B%AE%E5%BD%95/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

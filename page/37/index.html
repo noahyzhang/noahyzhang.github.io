@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,105 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-网络/TCPIP协议栈/传输层/拔掉网线后的TCP连接" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E7%BD%91%E7%BB%9C/">网络</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BD%91%E7%BB%9C/TCPIP%E5%8D%8F%E8%AE%AE%E6%A0%88/">TCPIP协议栈</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BD%91%E7%BB%9C/TCPIP%E5%8D%8F%E8%AE%AE%E6%A0%88/%E4%BC%A0%E8%BE%93%E5%B1%82/">传输层</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/10/11/%E7%BD%91%E7%BB%9C/TCPIP%E5%8D%8F%E8%AE%AE%E6%A0%88/%E4%BC%A0%E8%BE%93%E5%B1%82/%E6%8B%94%E6%8E%89%E7%BD%91%E7%BA%BF%E5%90%8E%E7%9A%84TCP%E8%BF%9E%E6%8E%A5/">
-            <time datetime="2023-10-11T06:30:36.158Z" itemprop="datePublished">2023-10-11</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/网络/TCPIP协议栈/传输层/拔掉网线后的TCP连接.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/网络/TCPIP协议栈/传输层/拔掉网线后的TCP连接.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/网络/TCPIP协议栈/传输层/拔掉网线后的TCP连接.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/10/11/%E7%BD%91%E7%BB%9C/TCPIP%E5%8D%8F%E8%AE%AE%E6%A0%88/%E4%BC%A0%E8%BE%93%E5%B1%82/%E6%8B%94%E6%8E%89%E7%BD%91%E7%BA%BF%E5%90%8E%E7%9A%84TCP%E8%BF%9E%E6%8E%A5/">拔掉网线后的 TCP 连接</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><p>首先，TCP 连接在 Linux 内核中是一个名为 <code>struct socket</code> 的结构体，该结构体的内容包含 TCP 连接的状态等信息。当拔掉网线的时候，操作系统并不会变更该结构体的任何内容，所以 TCP 连接的状态暂时也不会发生改变。</p>
-<p>主要得看拔掉网线后，两端做了什么动作，有没有进行数据传输。分场景来讨论：有数据传输、没有数据传输。</p>
-<h3 id="一、拔掉网线后，有数据传输"><a href="#一、拔掉网线后，有数据传输" class="headerlink" title="一、拔掉网线后，有数据传输"></a>一、拔掉网线后，有数据传输</h3><p>在客户端拔掉网线后，服务端向客户端发送的数据报文会得不到任何的响应，在等待一定时长后，服务端就会触发<strong>超时重传</strong>机制，重传未得到响应的数据报文。</p>
-<ul>
-<li><strong>如果在服务端重传报文的过程中，客户端刚好把网线插回去了</strong>，由于拔掉网线并不会改变客户端的 TCP 连接状态，并且还是处于 ESTABLISHED 状态，所以这时客户端是可以正常接收服务端发来的数据报文的，然后客户端就会回 ACK 响应报文。此时，客户端和服务端的 TCP 连接依然存在的，就感觉什么事情都没有发生。</li>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/10/11/%E7%BD%91%E7%BB%9C/TCPIP%E5%8D%8F%E8%AE%AE%E6%A0%88/%E4%BC%A0%E8%BE%93%E5%B1%82/%E6%8B%94%E6%8E%89%E7%BD%91%E7%BA%BF%E5%90%8E%E7%9A%84TCP%E8%BF%9E%E6%8E%A5/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-网络/TCPIP协议栈/传输层/socket与三次握手四次挥手" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3608,6 +3509,105 @@
         
             <h4 id="1-除法"><a href="#1-除法" class="headerlink" title="1. 除法"></a>1. 除法</h4><p>使用 16 位的二进制数</p>
 
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-编程语言/汇编语言/课程笔记" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">汇编语言</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/10/11/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+            <time datetime="2023-10-11T06:30:36.143Z" itemprop="datePublished">2023-10-11</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/编程语言/汇编语言/课程笔记.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/编程语言/汇编语言/课程笔记.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/编程语言/汇编语言/课程笔记.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/10/11/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><p>CISC（复杂指令集）：Intel 芯片</p>
+<p>RISC（精简指令集）：ARM 芯片、MAC m1、m2 芯片</p>
+<p><code>disas /r</code> ：查看汇编的时候，显示机器码</p>
+<p>汇编中，函数的返回值一般在 eax 中。ecx 寄存器一般存储循环次数</p>
+<p>寄存器中以 e 开头的，就是 32 位寄存器。如果以 r 开头，就是 64 位寄存器。</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2023/10/11/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,95 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-linux/未总结/systemct失败原因查看" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/%E6%9C%AA%E6%80%BB%E7%BB%93/">未总结</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/01/19/linux/%E6%9C%AA%E6%80%BB%E7%BB%93/systemct%E5%A4%B1%E8%B4%A5%E5%8E%9F%E5%9B%A0%E6%9F%A5%E7%9C%8B/">
-            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/未总结/systemct失败原因查看.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/未总结/systemct失败原因查看.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/未总结/systemct失败原因查看.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/01/19/linux/%E6%9C%AA%E6%80%BB%E7%BB%93/systemct%E5%A4%B1%E8%B4%A5%E5%8E%9F%E5%9B%A0%E6%9F%A5%E7%9C%8B/">undefined</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-            
-        
-        
-            <p><strong>journalctl 用来查询 systemd-journald 服务收集到的日志。</strong>systemd-journald 服务是 systemd init 系统提供的收集系统日志的服务。</p>
-<p>journalctl -xefu kubelet </p>
-
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-linux/未总结/一个多线程挂起问题解决" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3566,6 +3477,91 @@
         
             <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">线程栈：这些栈被保存在虚拟地址空间的栈区域中，并且通常是被相应的线程独立地访问。这里我们说通常而不是总是，是因为一个线程栈不对其他线程设防，我们可以通过一个指向其他线程栈的指针（比如一个全局的指针变量）来读写其他线程栈的任何部分</span><br></pre></td></tr></table></figure>
 
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-linux/未总结/缓存的局部性原理" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/%E6%9C%AA%E6%80%BB%E7%BB%93/">未总结</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/01/19/linux/%E6%9C%AA%E6%80%BB%E7%BB%93/%E7%BC%93%E5%AD%98%E7%9A%84%E5%B1%80%E9%83%A8%E6%80%A7%E5%8E%9F%E7%90%86/">
+            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/未总结/缓存的局部性原理.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/未总结/缓存的局部性原理.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/未总结/缓存的局部性原理.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/01/19/linux/%E6%9C%AA%E6%80%BB%E7%BB%93/%E7%BC%93%E5%AD%98%E7%9A%84%E5%B1%80%E9%83%A8%E6%80%A7%E5%8E%9F%E7%90%86/">undefined</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+            
+        
+        
+            <p>什么是缓存的局部性原理：<a target="_blank" rel="noopener" href="https://blog.csdn.net/zhanyd/article/details/102631248">https://blog.csdn.net/zhanyd/article/details/102631248</a></p>
 
             </div>
         

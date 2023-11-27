@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,98 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-linux/内存管理/编译选项注意" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">内存管理</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/10/11/linux/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9%E6%B3%A8%E6%84%8F/">
-            <time datetime="2023-10-11T06:30:35.800Z" itemprop="datePublished">2023-10-11</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/内存管理/编译选项注意.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/内存管理/编译选项注意.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/内存管理/编译选项注意.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/10/11/linux/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9%E6%B3%A8%E6%84%8F/">使用第三方内存管理库时编译选项</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-            
-        
-        
-            <h2 id="使用第三方内存管理库时编译选项"><a href="#使用第三方内存管理库时编译选项" class="headerlink" title="使用第三方内存管理库时编译选项"></a>使用第三方内存管理库时编译选项</h2><p>当使用第三方内存管理库（jemalloc、tcmalloc）时，用  gcc 来编译项目时，建议加上：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-fno-builtin-malloc</span><br><span class="line">-fno-builtin-calloc</span><br><span class="line">-fno-builtin-realloc</span><br><span class="line">-fno-builtin-free</span><br></pre></td></tr></table></figure>
-
-<p>这是阻止编译器优化时使用内置版本的 <code>malloc、calloc、realloc、free</code> 函数。</p>
-
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-linux/内存管理/进程内存布局" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3556,6 +3464,105 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2023/10/11/linux/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%86%85%E5%AD%98%E6%9A%B4%E5%A2%9E%E9%97%AE%E9%A2%98%E5%89%96%E6%9E%90%E8%A7%A3%E5%86%B3%E8%BF%87%E7%A8%8B/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-linux/内存管理/内存申请相关函数" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">内存管理</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/10/11/linux/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%86%85%E5%AD%98%E7%94%B3%E8%AF%B7%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0/">
+            <time datetime="2023-10-11T06:30:35.799Z" itemprop="datePublished">2023-10-11</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/内存管理/内存申请相关函数.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/内存管理/内存申请相关函数.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/内存管理/内存申请相关函数.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/10/11/linux/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%86%85%E5%AD%98%E7%94%B3%E8%AF%B7%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0/">内存申请相关函数</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><p>操作系统提供了相关的系统调用来完成相关工作。</p>
+<p>对heap的操作，操作系统提供了brk()函数，C运行时库提供了sbrk()函数。</p>
+<p>对mmap映射区域的操作，操作系统提供了mmap()和munmap()函数。</p>
+<p>这里要提到一个很重要的概念，内存的延迟分配，只有在真正访问一个地址的时候才建立这个地址的物理映射，这是 Linux 内存管理的基本思想之一。Linux 内核在用户申请内存的时候，只是给它分配了一个线性区（也就是虚拟内存），并没有分配实际物理内存；只有当用户使用这块内存的时候，内核才会分配具体的物理页面给用户，这时候才占用宝贵的物理内存。内核释放物理页面是通过释放线性区，找到其所对应的物理页面，将其全部释放的过程。 </p>
+<h3 id="一、heap-操作相关函数"><a href="#一、heap-操作相关函数" class="headerlink" title="一、heap 操作相关函数"></a>一、heap 操作相关函数</h3><p>Heap 操作函数主要有两个，<code>brk()</code> 为系统调用，<code>sbrk()</code> 为 C 库函数。系统调用通常提供一种最小功能，而库函数通常提供比较复杂的功能。Glibc 的 malloc 函数族（realloc，calloc等）就调用 sbrk() 函数将数据段的下界移动，sbrk() 函数在内核的管理下将虚拟地址空间映射到内存，供 malloc() 函数使用。 </p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2023/10/11/linux/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/%E5%86%85%E5%AD%98%E7%94%B3%E8%AF%B7%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

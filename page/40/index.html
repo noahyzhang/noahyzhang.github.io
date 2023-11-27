@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,105 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-编程语言/c++语言/极客时间-cpp实战/语言特性" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c-%E8%AF%AD%E8%A8%80/">c++语言</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c-%E8%AF%AD%E8%A8%80/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4-cpp%E5%AE%9E%E6%88%98/">极客时间-cpp实战</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/10/11/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++%E8%AF%AD%E8%A8%80/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4-cpp%E5%AE%9E%E6%88%98/%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/">
-            <time datetime="2023-10-11T06:30:36.100Z" itemprop="datePublished">2023-10-11</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/编程语言/c++语言/极客时间-cpp实战/语言特性.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/编程语言/c++语言/极客时间-cpp实战/语言特性.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/编程语言/c++语言/极客时间-cpp实战/语言特性.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/10/11/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++%E8%AF%AD%E8%A8%80/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4-cpp%E5%AE%9E%E6%88%98/%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/">c++语言特性</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h3 id="一、关键字-auto-decltype-const-volatile-mutable"><a href="#一、关键字-auto-decltype-const-volatile-mutable" class="headerlink" title="一、关键字 auto &#x2F; decltype &#x2F; const &#x2F; volatile &#x2F; mutable"></a>一、关键字 auto &#x2F; decltype &#x2F; const &#x2F; volatile &#x2F; mutable</h3><ul>
-<li><p>自动类型推导：auto 和 decltype。“自动类型推导”是给编译器下的指令，让编译器去计算表达式的类型。</p>
-</li>
-<li><p>const 与 volatile，如下代码</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 需要加上volatile修饰，运行时才能看到效果</span><br><span class="line">const volatile int MAX_LEN  = 1024;</span><br><span class="line"></span><br><span class="line">auto ptr = (int*)(&amp;MAX_LEN);</span><br><span class="line">*ptr = 2048;</span><br><span class="line">cout &lt;&lt; MAX_LEN &lt;&lt; endl;      // 输出2048</span><br></pre></td></tr></table></figure>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/10/11/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++%E8%AF%AD%E8%A8%80/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4-cpp%E5%AE%9E%E6%88%98/%E8%AF%AD%E8%A8%80%E7%89%B9%E6%80%A7/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-编程语言/c++语言/未总结/可变参数" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3574,6 +3475,105 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2023/10/11/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/%E6%96%B9%E6%A1%88/%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%93%BE%E8%B7%AF%E7%9B%91%E6%8E%A7%E6%96%B9%E6%A1%88/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-编程技巧/方案/性能分析方案" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/">编程技巧</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/%E6%96%B9%E6%A1%88/">方案</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/10/11/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/%E6%96%B9%E6%A1%88/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E6%96%B9%E6%A1%88/">
+            <time datetime="2023-10-11T06:30:36.093Z" itemprop="datePublished">2023-10-11</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/编程技巧/方案/性能分析方案.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/编程技巧/方案/性能分析方案.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/编程技巧/方案/性能分析方案.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/10/11/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/%E6%96%B9%E6%A1%88/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E6%96%B9%E6%A1%88/">性能分析方案</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="性能分析方案"><a href="#性能分析方案" class="headerlink" title="性能分析方案"></a>性能分析方案</h2><p>本文主要对 linux 下程序的性能如何分析进行讨论。</p>
+<p>性能分析是一种动态的程序分析方法，在运行阶段采集程序的各种信息，再整合、研究，找出软件运行的“瓶颈”，为进一步优化性能提供依据，指明方向。性能分析的范围非常广，可以从 CPU 利用率、内存占用率、网络吞吐量、系统延迟等许多维度来评估。</p>
+<p>本文目前主要针对 CPU、内存 这两个方面的性能进行分析。</p>
+<h3 id="一、调研"><a href="#一、调研" class="headerlink" title="一、调研"></a>一、调研</h3><h4 id="1-系统级工具"><a href="#1-系统级工具" class="headerlink" title="1. 系统级工具"></a>1. 系统级工具</h4><p>Linux 的性能分析工具太多，这里我推荐几个“高性价比”的工具：top、pstack、strace 和 perf。</p>
+<ul>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2023/10/11/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/%E6%96%B9%E6%A1%88/%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E6%96%B9%E6%A1%88/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

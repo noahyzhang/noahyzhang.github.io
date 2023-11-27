@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,110 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-编程语言/go语言/release/日志包" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/go/" rel="tag">go</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2021/03/07/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80/release/%E6%97%A5%E5%BF%97%E5%8C%85/">
-            <time datetime="2021-03-07T12:19:17.000Z" itemprop="datePublished">2021-03-07</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/编程语言/go语言/release/日志包.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/编程语言/go语言/release/日志包.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/编程语言/go语言/release/日志包.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2021/03/07/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80/release/%E6%97%A5%E5%BF%97%E5%8C%85/">go语言日志</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h2 id="Go日志"><a href="#Go日志" class="headerlink" title="Go日志"></a>Go日志</h2><h3 id="一、log包"><a href="#一、log包" class="headerlink" title="一、log包"></a>一、log包</h3><p>log日志包会默认为输出带上时间，我们也可以自定义我们的日志抬头信息</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义抬头信息为：时间+文件名+源代码所在行号</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">	log.SetFlags(log.Ldate | log.Lshortfile)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>log包提供的可定义的选项常量</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	Ldate         = <span class="number">1</span> &lt;&lt; <span class="literal">iota</span>     <span class="comment">//日期示例： 2009/01/23</span></span><br><span class="line">	Ltime                         <span class="comment">//时间示例: 01:23:23</span></span><br><span class="line">	Lmicroseconds                 <span class="comment">//毫秒示例: 01:23:23.123123.</span></span><br><span class="line">	Llongfile                     <span class="comment">//绝对路径和行号: /a/b/c/d.go:23</span></span><br><span class="line">	Lshortfile                    <span class="comment">//文件和行号: d.go:23.</span></span><br><span class="line">	LUTC                          <span class="comment">//日期时间转为0时区的</span></span><br><span class="line">	LstdFlags     = Ldate | Ltime <span class="comment">//Go提供的标准抬头信息</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2021/03/07/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/go%E8%AF%AD%E8%A8%80/release/%E6%97%A5%E5%BF%97%E5%8C%85/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-编程语言/go语言/release/时间戳和时间之间的转换" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3696,6 +3592,110 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2020/12/27/%E6%95%B0%E6%8D%AE%E5%BA%93/release/Mysql%E8%A1%A8%E7%A9%BA%E9%97%B4%E4%BB%A5%E5%8F%8Aibdata1%E6%96%87%E4%BB%B6%E8%A7%A3%E9%87%8A/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-数据库/release/mysql字符集转换原理剖析及乱码原因" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/mysql/" rel="tag">mysql</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2020/12/27/%E6%95%B0%E6%8D%AE%E5%BA%93/release/mysql%E5%AD%97%E7%AC%A6%E9%9B%86%E8%BD%AC%E6%8D%A2%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E5%8F%8A%E4%B9%B1%E7%A0%81%E5%8E%9F%E5%9B%A0/">
+            <time datetime="2020-12-27T06:14:06.000Z" itemprop="datePublished">2020-12-27</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/数据库/release/mysql字符集转换原理剖析及乱码原因.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/数据库/release/mysql字符集转换原理剖析及乱码原因.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/数据库/release/mysql字符集转换原理剖析及乱码原因.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2020/12/27/%E6%95%B0%E6%8D%AE%E5%BA%93/release/mysql%E5%AD%97%E7%AC%A6%E9%9B%86%E8%BD%AC%E6%8D%A2%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E5%8F%8A%E4%B9%B1%E7%A0%81%E5%8E%9F%E5%9B%A0/">mysql字符集转换原理剖析及乱码原因</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h1 id="一、mysql字符集和校对"><a href="#一、mysql字符集和校对" class="headerlink" title="一、mysql字符集和校对"></a>一、mysql字符集和校对</h1><p>字符集是指一种从二进制编码到某类字符符号的映射。校对是指一组用于某个字符集的排序规则。在Mysql4.1和之后的版本中，每一类编码字符都有其对应的字符集和校对规则。</p>
+<h3 id="1-Mysql如何使用字符集"><a href="#1-Mysql如何使用字符集" class="headerlink" title="1. Mysql如何使用字符集"></a>1. Mysql如何使用字符集</h3><p>Mysql服务器有默认的字符集和校对规则，每个数据库也有自己的默认值，每个表也有自己的默认值。这是一个逐层继承的默认设置，最终最靠底层的默认设置将影响你创建的对象。这些默认值，至上而下的告诉MYSQL应该使用什么字符集来存储某个列。</p>
+<p>在这个“阶梯”的每一层，你都可以指定一个特定的字符集或者让服务器使用它的默认值。</p>
+<ul>
+<li>创建数据库时，将根据服务器上的 character_set_server 设置来设定该数据库的默认字符集</li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2020/12/27/%E6%95%B0%E6%8D%AE%E5%BA%93/release/mysql%E5%AD%97%E7%AC%A6%E9%9B%86%E8%BD%AC%E6%8D%A2%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E5%8F%8A%E4%B9%B1%E7%A0%81%E5%8E%9F%E5%9B%A0/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

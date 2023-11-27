@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,110 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-架构框架/极客-架构/高可用架构模式/存储架构-集群和分区" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E6%9E%B6%E6%9E%84%E6%A1%86%E6%9E%B6/">架构框架</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%9E%B6%E6%9E%84%E6%A1%86%E6%9E%B6/%E6%9E%81%E5%AE%A2-%E6%9E%B6%E6%9E%84/">极客-架构</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%9E%B6%E6%9E%84%E6%A1%86%E6%9E%B6/%E6%9E%81%E5%AE%A2-%E6%9E%B6%E6%9E%84/%E9%AB%98%E5%8F%AF%E7%94%A8%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F/">高可用架构模式</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/01/19/%E6%9E%B6%E6%9E%84%E6%A1%86%E6%9E%B6/%E6%9E%81%E5%AE%A2-%E6%9E%B6%E6%9E%84/%E9%AB%98%E5%8F%AF%E7%94%A8%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F/%E5%AD%98%E5%82%A8%E6%9E%B6%E6%9E%84-%E9%9B%86%E7%BE%A4%E5%92%8C%E5%88%86%E5%8C%BA/">
-            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/架构框架/极客-架构/高可用架构模式/存储架构-集群和分区.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/架构框架/极客-架构/高可用架构模式/存储架构-集群和分区.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/架构框架/极客-架构/高可用架构模式/存储架构-集群和分区.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/01/19/%E6%9E%B6%E6%9E%84%E6%A1%86%E6%9E%B6/%E6%9E%81%E5%AE%A2-%E6%9E%B6%E6%9E%84/%E9%AB%98%E5%8F%AF%E7%94%A8%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F/%E5%AD%98%E5%82%A8%E6%9E%B6%E6%9E%84-%E9%9B%86%E7%BE%A4%E5%92%8C%E5%88%86%E5%8C%BA/">undefined</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h2 id="高可用存储架构：集群和分区"><a href="#高可用存储架构：集群和分区" class="headerlink" title="高可用存储架构：集群和分区"></a>高可用存储架构：集群和分区</h2><h2 id="一、数据集群"><a href="#一、数据集群" class="headerlink" title="一、数据集群"></a>一、数据集群</h2><p>集群就是多台机器组成在一起形成的一个统一的系统，数量上至少是3台。根据集群中机器承担的不同角色来划分，集群可以分为两类：数据集中集群、数据分散集群</p>
-<h4 id="1-数据集中集群"><a href="#1-数据集中集群" class="headerlink" title="1. 数据集中集群"></a>1. 数据集中集群</h4><img src="./image/数据集中集群.png" style="zoom:33%;" />
-
-<p>也可以将数据集中集群称为1主多备或1主多从。数据只能往主机中写。</p>
-<p>难点在于：</p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/01/19/%E6%9E%B6%E6%9E%84%E6%A1%86%E6%9E%B6/%E6%9E%81%E5%AE%A2-%E6%9E%B6%E6%9E%84/%E9%AB%98%E5%8F%AF%E7%94%A8%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F/%E5%AD%98%E5%82%A8%E6%9E%B6%E6%9E%84-%E9%9B%86%E7%BE%A4%E5%92%8C%E5%88%86%E5%8C%BA/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-架构框架/极客-架构/高可用架构模式/应对接口级故障" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3722,6 +3618,110 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2023/01/19/%E6%9E%B6%E6%9E%84%E6%A1%86%E6%9E%B6/%E6%9E%81%E5%AE%A2-%E6%9E%B6%E6%9E%84/%E9%AB%98%E6%80%A7%E8%83%BD%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BC%93%E5%AD%98%E6%9E%B6%E6%9E%84-%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F%E9%9B%AA%E5%B4%A9%E7%83%AD%E7%82%B9/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-架构框架/极客-架构/高性能架构模式/高性能NoSQL" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E6%9E%B6%E6%9E%84%E6%A1%86%E6%9E%B6/">架构框架</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%9E%B6%E6%9E%84%E6%A1%86%E6%9E%B6/%E6%9E%81%E5%AE%A2-%E6%9E%B6%E6%9E%84/">极客-架构</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E6%9E%B6%E6%9E%84%E6%A1%86%E6%9E%B6/%E6%9E%81%E5%AE%A2-%E6%9E%B6%E6%9E%84/%E9%AB%98%E6%80%A7%E8%83%BD%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F/">高性能架构模式</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/01/19/%E6%9E%B6%E6%9E%84%E6%A1%86%E6%9E%B6/%E6%9E%81%E5%AE%A2-%E6%9E%B6%E6%9E%84/%E9%AB%98%E6%80%A7%E8%83%BD%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F/%E9%AB%98%E6%80%A7%E8%83%BDNoSQL/">
+            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/架构框架/极客-架构/高性能架构模式/高性能NoSQL.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/架构框架/极客-架构/高性能架构模式/高性能NoSQL.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/架构框架/极客-架构/高性能架构模式/高性能NoSQL.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/01/19/%E6%9E%B6%E6%9E%84%E6%A1%86%E6%9E%B6/%E6%9E%81%E5%AE%A2-%E6%9E%B6%E6%9E%84/%E9%AB%98%E6%80%A7%E8%83%BD%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F/%E9%AB%98%E6%80%A7%E8%83%BDNoSQL/">undefined</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h3 id="三、高性能NoSQL"><a href="#三、高性能NoSQL" class="headerlink" title="三、高性能NoSQL"></a>三、高性能NoSQL</h3><p>关系型数据库存在的缺点</p>
+<ol>
+<li>关系型数据库存储的是行记录，无法存储数据结构（例有序数组）</li>
+<li>关系型数据库的 schema 扩展很不方便，表结构 schema 是强约束，操作不存在的列会保错；业务变化时扩充列比较麻烦，需要执行DDL（data definition language，如 CREATE、ALTER、DROP 等）语句修改，而且修改时间会长时间锁表（MySQL 可能锁表 1 个小时）</li>
+<li>关系型数据库在大数据场景下 I&#x2F;O 高。因为即使只针对其中某一列进行运算，关系型数据库也会将整行数据从存储设备读入内存</li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2023/01/19/%E6%9E%B6%E6%9E%84%E6%A1%86%E6%9E%B6/%E6%9E%81%E5%AE%A2-%E6%9E%B6%E6%9E%84/%E9%AB%98%E6%80%A7%E8%83%BD%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F/%E9%AB%98%E6%80%A7%E8%83%BDNoSQL/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

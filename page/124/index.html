@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,110 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-编程语言/c++语言/日常笔记/函数重载注意点" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c-%E8%AF%AD%E8%A8%80/">c++语言</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c-%E8%AF%AD%E8%A8%80/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/">日常笔记</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/01/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++%E8%AF%AD%E8%A8%80/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E6%B3%A8%E6%84%8F%E7%82%B9/">
-            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/编程语言/c++语言/日常笔记/函数重载注意点.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/编程语言/c++语言/日常笔记/函数重载注意点.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/编程语言/c++语言/日常笔记/函数重载注意点.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/01/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++%E8%AF%AD%E8%A8%80/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E6%B3%A8%E6%84%8F%E7%82%B9/">函数重载注意点</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h4 id="一、为什么不要重载-和-操作符"><a href="#一、为什么不要重载-和-操作符" class="headerlink" title="一、为什么不要重载 &amp;&amp; 和 || 操作符"></a>一、为什么不要重载 &amp;&amp; 和 || 操作符</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a1 = 1;</span><br><span class="line">int a2 = 0;</span><br><span class="line">if (a1 || a2++) </span><br><span class="line">if (a2 &amp;&amp; a1++) </span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>如上，第一个 if 判断条件因为 a1 为真，所以整个逻辑或就是真，不再执行 <code>a2++</code> </li>
-<li>第二个 if 判断条件因为 a2 为假，导致整个逻辑与为假，不再执行 <code>a1++</code></li>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/01/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++%E8%AF%AD%E8%A8%80/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E6%B3%A8%E6%84%8F%E7%82%B9/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-编程语言/c++语言/日常笔记/分支预测优化" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3707,6 +3603,110 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2023/01/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++%E8%AF%AD%E8%A8%80/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/%E5%BC%BA%E5%88%B6%E4%BF%AE%E6%94%B9const%20char%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%95%B0%E6%8D%AE/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-编程语言/c++语言/日常笔记/新知识" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c-%E8%AF%AD%E8%A8%80/">c++语言</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c-%E8%AF%AD%E8%A8%80/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/">日常笔记</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/01/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++%E8%AF%AD%E8%A8%80/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/%E6%96%B0%E7%9F%A5%E8%AF%86/">
+            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/编程语言/c++语言/日常笔记/新知识.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/编程语言/c++语言/日常笔记/新知识.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/编程语言/c++语言/日常笔记/新知识.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/01/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++%E8%AF%AD%E8%A8%80/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/%E6%96%B0%E7%9F%A5%E8%AF%86/">undefined</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><p>c++17中std::any ：<a target="_blank" rel="noopener" href="https://blog.csdn.net/janeqi1987/article/details/100568181">https://blog.csdn.net/janeqi1987/article/details/100568181</a></p>
+<p>vector中push_back和emplace_back区别：<a target="_blank" rel="noopener" href="https://blog.csdn.net/MOU_IT/article/details/88757348">https://blog.csdn.net/MOU_IT/article/details/88757348</a></p>
+<h4 id="一、vector-中的-erase-使用"><a href="#一、vector-中的-erase-使用" class="headerlink" title="一、vector 中的 erase 使用"></a>一、vector 中的 erase 使用</h4><p>erase 可以删除指定元素，或者删除一个范围的元素。然后迭代器指向下一个元素。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for (it = vec.begin(); it != vec.end();) &#123;</span><br><span class="line">	if (xxx) it = vec.erase(it);</span><br><span class="line">	else ++it;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2023/01/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++%E8%AF%AD%E8%A8%80/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/%E6%96%B0%E7%9F%A5%E8%AF%86/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,110 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-linux/性能优化/内存/swap原理" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/%E5%86%85%E5%AD%98/">内存</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/01/19/linux/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/%E5%86%85%E5%AD%98/swap%E5%8E%9F%E7%90%86/">
-            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/性能优化/内存/swap原理.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/性能优化/内存/swap原理.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/性能优化/内存/swap原理.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/01/19/linux/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/%E5%86%85%E5%AD%98/swap%E5%8E%9F%E7%90%86/">undefined</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h2 id="一、系统内存资源回收方式"><a href="#一、系统内存资源回收方式" class="headerlink" title="一、系统内存资源回收方式"></a>一、系统内存资源回收方式</h2><h3 id="1-系统的内存资源紧张时，系统可能会进行-内存回收、OOM杀死进程"><a href="#1-系统的内存资源紧张时，系统可能会进行-内存回收、OOM杀死进程" class="headerlink" title="1. 系统的内存资源紧张时，系统可能会进行 内存回收、OOM杀死进程"></a>1. 系统的内存资源紧张时，系统可能会进行 内存回收、OOM杀死进程</h3><ul>
-<li>OOM（Out Of Memory）系统杀死占用大量内存的进程，释放这些内存，再分配给其他更需要的进程</li>
-<li>内存回收：系统释放掉可以回收的内存。<ul>
-<li>比如缓存和缓冲区属于可回收内存。他们在内存管理中，通常被叫做文件页。大部分文件页，都可以直接回收，以后有需要时，再从磁盘重新读取就可以了。而那些被应用程序修改过，并且暂时还没写入磁盘的数据（也就是脏页），就得先写入磁盘，然后才能进行内存释放。</li>
-<li>比如内存映射的文件映射页，也是一种常见的文件页。它也可以被释放掉，下次再访问的时候，从文件重新读取</li>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/01/19/linux/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/%E5%86%85%E5%AD%98/swap%E5%8E%9F%E7%90%86/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-linux/性能优化/内存/缓存命中率" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3653,6 +3549,110 @@
         
         
             
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-linux/性能优化/网络/网络模型和收发网络包流程" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/%E7%BD%91%E7%BB%9C/">网络</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/01/19/linux/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/%E7%BD%91%E7%BB%9C/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%94%B6%E5%8F%91%E7%BD%91%E7%BB%9C%E5%8C%85%E6%B5%81%E7%A8%8B/">
+            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/性能优化/网络/网络模型和收发网络包流程.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/性能优化/网络/网络模型和收发网络包流程.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/性能优化/网络/网络模型和收发网络包流程.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/01/19/linux/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/%E7%BD%91%E7%BB%9C/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%94%B6%E5%8F%91%E7%BD%91%E7%BB%9C%E5%8C%85%E6%B5%81%E7%A8%8B/">undefined</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="一、网络模型"><a href="#一、网络模型" class="headerlink" title="一、网络模型"></a>一、网络模型</h2><p>开放式系统互联通信参考模型（Open System Interconnection Reference Model），简称为 OSI 网络模型。</p>
+<ul>
+<li>应用层，负责为应用程序提供统一的接口。</li>
+<li>表示层，负责把数据转换成兼容接收系统的格式。</li>
+<li>会话层，负责维护计算机之间的通信连接。</li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2023/01/19/linux/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/%E7%BD%91%E7%BB%9C/%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%94%B6%E5%8F%91%E7%BD%91%E7%BB%9C%E5%8C%85%E6%B5%81%E7%A8%8B/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

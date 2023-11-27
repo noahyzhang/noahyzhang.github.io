@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,110 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-linux/日常笔记/获取本机的IP和MAC地址" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/">日常笔记</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/01/19/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/%E8%8E%B7%E5%8F%96%E6%9C%AC%E6%9C%BA%E7%9A%84IP%E5%92%8CMAC%E5%9C%B0%E5%9D%80/">
-            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/日常笔记/获取本机的IP和MAC地址.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/日常笔记/获取本机的IP和MAC地址.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/日常笔记/获取本机的IP和MAC地址.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/01/19/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/%E8%8E%B7%E5%8F%96%E6%9C%AC%E6%9C%BA%E7%9A%84IP%E5%92%8CMAC%E5%9C%B0%E5%9D%80/">undefined</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h1 id="获取本机的IP和MAC地址"><a href="#获取本机的IP和MAC地址" class="headerlink" title="获取本机的IP和MAC地址"></a>获取本机的IP和MAC地址</h1><p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;unistd.h&gt;</p>
-<p>#include &lt;sys&#x2F;socket.h&gt;</p>
-<p>#include &lt;arpa&#x2F;inet.h&gt;</p>
-<p>#include &lt;string.h&gt;</p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/01/19/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/%E8%8E%B7%E5%8F%96%E6%9C%AC%E6%9C%BA%E7%9A%84IP%E5%92%8CMAC%E5%9C%B0%E5%9D%80/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-linux/日常笔记/软件包管理" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3711,6 +3607,110 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> sysconf( _SC_PAGESIZE );  此宏查看缓存内存页面的大小；打印用%ld长整型。</span><br><span class="line"> sysconf( _SC_PHYS_PAGES ) 此宏查看内存的总页数；打印用%ld长整型。</span><br><span class="line"> sysconf( _SC_AVPHYS_PAGES ) 此宏查看可以利用的总页数；打印用%ld长整型。</span><br><span class="line"> sysconf( _SC_NPROCESSORS_CONF ) 查看cpu的个数；打印用%ld长整。</span><br><span class="line"> sysconf( _SC_NPROCESSORS_ONLN ) 查看在使用的cpu个数；打印用%ld长整。</span><br><span class="line"> (long long)sysconf(_SC_PAGESIZE) * (long long)sysconf(_SC_PHYS_PAGES) 计算内存大小。</span><br><span class="line"> sysconf( _SC_LOGIN_NAME_MAX ) 查看最大登录名长度；打印用%ld长整。</span><br><span class="line"> sysconf( _SC_HOST_NAME_MAX ) 查看最大主机长度；打印用%ld长整。</span><br><span class="line"> sysconf( _SC_OPEN_MAX )  每个进程运行时打开的文件数目；打印用%ld长整。</span><br><span class="line"> sysconf(_SC_CLK_TCK) 查看每秒中跑过的运算速率；打印用%ld长整。</span><br><span class="line"> </span><br><span class="line">返回值：</span><br><span class="line">    若成功则返回相应值；若出错则返回-1</span><br><span class="line">    _SC_CLK_TCK的返回值是每秒钟的时钟滴答数，以用于times函数的返回值</span><br></pre></td></tr></table></figure>
 
 
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-linux/命令工具/Binutils工具集" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/%E5%91%BD%E4%BB%A4%E5%B7%A5%E5%85%B7/">命令工具</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/01/19/linux/%E5%91%BD%E4%BB%A4%E5%B7%A5%E5%85%B7/Binutils%E5%B7%A5%E5%85%B7%E9%9B%86/">
+            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/命令工具/Binutils工具集.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/命令工具/Binutils工具集.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/命令工具/Binutils工具集.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/01/19/linux/%E5%91%BD%E4%BB%A4%E5%B7%A5%E5%85%B7/Binutils%E5%B7%A5%E5%85%B7%E9%9B%86/">undefined</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h3 id="binutils-toolchain-工具集"><a href="#binutils-toolchain-工具集" class="headerlink" title="binutils toolchain 工具集"></a>binutils toolchain 工具集</h3><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>功能</th>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2023/01/19/linux/%E5%91%BD%E4%BB%A4%E5%B7%A5%E5%85%B7/Binutils%E5%B7%A5%E5%85%B7%E9%9B%86/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

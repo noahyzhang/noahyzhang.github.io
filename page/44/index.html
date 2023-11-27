@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,105 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-组件学习/redis/实现/2.持久化RDB和AOF" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/">组件学习</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/redis/">redis</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/redis/%E5%AE%9E%E7%8E%B0/">实现</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/10/11/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/redis/%E5%AE%9E%E7%8E%B0/2.%E6%8C%81%E4%B9%85%E5%8C%96RDB%E5%92%8CAOF/">
-            <time datetime="2023-10-11T06:30:36.074Z" itemprop="datePublished">2023-10-11</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/组件学习/redis/实现/2.持久化RDB和AOF.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/组件学习/redis/实现/2.持久化RDB和AOF.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/组件学习/redis/实现/2.持久化RDB和AOF.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/10/11/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/redis/%E5%AE%9E%E7%8E%B0/2.%E6%8C%81%E4%B9%85%E5%8C%96RDB%E5%92%8CAOF/">持久化</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h2 id="一、RDB-持久化"><a href="#一、RDB-持久化" class="headerlink" title="一、RDB 持久化"></a>一、RDB 持久化</h2><p>可以将 redis 在内存中的数据库状态保存到磁盘里面，避免数据因为服务器进程退出而丢失。</p>
-<p>RDB 持久化既可以手动执行，也可以根据服务器配置选项定期执行，该功能可以将某个时间点上的数据库状态保存到一个 RDB 文件中。</p>
-<p>RDB 持久化功能所生成的 RDB 文件是一个经过压缩的二进制文件。有 SAVE 和 BGSAVE 命令</p>
-<ul>
-<li>SAVE 命令会阻塞 Redis 服务器进程，直到 RDB 文件创建完毕为止，在服务器进程阻塞期间，服务器不能处理任何命令请求</li>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/10/11/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/redis/%E5%AE%9E%E7%8E%B0/2.%E6%8C%81%E4%B9%85%E5%8C%96RDB%E5%92%8CAOF/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-组件学习/redis/实现/4.客户端和服务端" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3612,6 +3513,105 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2023/10/11/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%A2%E9%BB%91%E6%A0%91%E5%92%8C%E5%93%88%E5%B8%8C%E8%A1%A8/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-算法/刷题目/链表/两个单链表生成相加链表" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/%E5%88%B7%E9%A2%98%E7%9B%AE/">刷题目</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%AE%97%E6%B3%95/%E5%88%B7%E9%A2%98%E7%9B%AE/%E9%93%BE%E8%A1%A8/">链表</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/10/11/%E7%AE%97%E6%B3%95/%E5%88%B7%E9%A2%98%E7%9B%AE/%E9%93%BE%E8%A1%A8/%E4%B8%A4%E4%B8%AA%E5%8D%95%E9%93%BE%E8%A1%A8%E7%94%9F%E6%88%90%E7%9B%B8%E5%8A%A0%E9%93%BE%E8%A1%A8/">
+            <time datetime="2023-10-11T06:30:36.011Z" itemprop="datePublished">2023-10-11</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/算法/刷题目/链表/两个单链表生成相加链表.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/算法/刷题目/链表/两个单链表生成相加链表.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/算法/刷题目/链表/两个单链表生成相加链表.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/10/11/%E7%AE%97%E6%B3%95/%E5%88%B7%E9%A2%98%E7%9B%AE/%E9%93%BE%E8%A1%A8/%E4%B8%A4%E4%B8%AA%E5%8D%95%E9%93%BE%E8%A1%A8%E7%94%9F%E6%88%90%E7%9B%B8%E5%8A%A0%E9%93%BE%E8%A1%A8/">两个单链表生成相加链表</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="两个单链表生成相加链表"><a href="#两个单链表生成相加链表" class="headerlink" title="两个单链表生成相加链表"></a>两个单链表生成相加链表</h2><h3 id="一、题目"><a href="#一、题目" class="headerlink" title="一、题目"></a>一、题目</h3><p>给定两个用链表表示的整数，每个节点包含一个数位。</p>
+<p>这些数位是反向存放的，也就是个位排在链表首部。</p>
+<p>编写函数对这两个整数求和，并用链表形式返回结果。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：(7 -&gt; 1 -&gt; 6) + (5 -&gt; 9 -&gt; 2)，即617 + 295</span><br><span class="line">输出：2 -&gt; 1 -&gt; 9，即912</span><br></pre></td></tr></table></figure>
+
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2023/10/11/%E7%AE%97%E6%B3%95/%E5%88%B7%E9%A2%98%E7%9B%AE/%E9%93%BE%E8%A1%A8/%E4%B8%A4%E4%B8%AA%E5%8D%95%E9%93%BE%E8%A1%A8%E7%94%9F%E6%88%90%E7%9B%B8%E5%8A%A0%E9%93%BE%E8%A1%A8/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

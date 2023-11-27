@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,110 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-linux/日常笔记/linux下的tempfs文件系统和-dev-shm目录" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/">日常笔记</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/01/19/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/linux%E4%B8%8B%E7%9A%84tempfs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%92%8C-dev-shm%E7%9B%AE%E5%BD%95/">
-            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/日常笔记/linux下的tempfs文件系统和-dev-shm目录.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/日常笔记/linux下的tempfs文件系统和-dev-shm目录.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/日常笔记/linux下的tempfs文件系统和-dev-shm目录.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/01/19/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/linux%E4%B8%8B%E7%9A%84tempfs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%92%8C-dev-shm%E7%9B%AE%E5%BD%95/">undefined</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h1 id="linux下的tempfs文件系统和-dev-shm目录"><a href="#linux下的tempfs文件系统和-dev-shm目录" class="headerlink" title="linux下的tempfs文件系统和&#x2F;dev&#x2F;shm目录"></a>linux下的tempfs文件系统和&#x2F;dev&#x2F;shm目录</h1><h1 id="Linux系统tempfs和-dev-shm解析"><a href="#Linux系统tempfs和-dev-shm解析" class="headerlink" title="Linux系统tempfs和&#x2F;dev&#x2F;shm解析"></a>Linux系统tempfs和&#x2F;dev&#x2F;shm解析</h1><h2 id="一、tempfs文件系统"><a href="#一、tempfs文件系统" class="headerlink" title="一、tempfs文件系统"></a>一、tempfs文件系统</h2><p>文件系统有两种变体，称为_shm_和 _tmpfs_。它们都共享核心功能，并且主要用途不同。内核使用<code>shm</code>为匿名页面创建文件支持，并为<code>shmge()</code>创建的区域提供支持。该文件系统由<code>kern_mount（）</code>挂载这样它就可以在内部安装并且对用户不可见。<code>tmpfs</code>是一个临时文件系统，可以选择将其安装在&#x2F;tmp&#x2F;上，以具有基于RAM的快速临时文件系统。<code>tmpfs</code>的第二个用途 是将其安装在 &#x2F;dev&#x2F;shm&#x2F; 上。tmpfs文件系统中<code>mmap()</code>文件的进程将能够在它们之间共享信息，以作为System V IPC机制的替代方法。</p>
-<p>tempfs是驻留在内存或交换分区中的临时文件系统。将目录挂载为tempfs是加快对其文件访问速度的有效方法。传统的虚拟磁盘是一个块设备，但tempfs是一个文件系统，而不是块设备，只需要安装它，就可以使用了。</p>
-<p>tempfs的用途</p>
-<ul>
-<li>总会有一个内核内部挂载，也许我们看不到，可能用于共享内存等</li>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/01/19/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/linux%E4%B8%8B%E7%9A%84tempfs%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%92%8C-dev-shm%E7%9B%AE%E5%BD%95/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-linux/日常笔记/linux下统计目录下的文件数目" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3661,6 +3557,110 @@
         
         
             <h1 id="linux工具之screen"><a href="#linux工具之screen" class="headerlink" title="linux工具之screen"></a>linux工具之screen</h1>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-linux/日常笔记/linux工具之tar" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/">日常笔记</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/01/19/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/linux%E5%B7%A5%E5%85%B7%E4%B9%8Btar/">
+            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/日常笔记/linux工具之tar.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/日常笔记/linux工具之tar.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/日常笔记/linux工具之tar.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/01/19/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/linux%E5%B7%A5%E5%85%B7%E4%B9%8Btar/">undefined</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h1 id="linux工具之tar"><a href="#linux工具之tar" class="headerlink" title="linux工具之tar"></a>linux工具之tar</h1><h4 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h4><ul>
+<li>这五个是独立的命令，压缩解压都要用到其中一个，可以和别的命令连用但只能用其中一个。</li>
+</ul>
+<p><code>-c：建立压缩档案 -x：解压 -t：查看内容 -r：向压缩归档文件末尾追加文件 -u：更新原压缩包中的文件</code></p>
+<ul>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2023/01/19/linux/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/linux%E5%B7%A5%E5%85%B7%E4%B9%8Btar/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

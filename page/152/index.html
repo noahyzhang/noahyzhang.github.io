@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,110 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-组件学习/git/release/git标签" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/">组件学习</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/git-tag/" rel="tag">git tag</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2021/03/27/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/git/release/git%E6%A0%87%E7%AD%BE/">
-            <time datetime="2021-03-27T06:11:41.000Z" itemprop="datePublished">2021-03-27</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/组件学习/git/release/git标签.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/组件学习/git/release/git标签.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/组件学习/git/release/git标签.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2021/03/27/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/git/release/git%E6%A0%87%E7%AD%BE/">git标签</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h2 id="git-标签"><a href="#git-标签" class="headerlink" title="git 标签"></a>git 标签</h2><h4 id="一-创建标签"><a href="#一-创建标签" class="headerlink" title="一. 创建标签"></a>一. 创建标签</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1. 切换到要打标签的分支上</span><br><span class="line">git branch dev, git checkout dev</span><br><span class="line">2. 打一个新标签</span><br><span class="line">git tag v1.0</span><br><span class="line">3. 创建带有说明的标签,使用 -a 指定标签名, -m 指定说明文字</span><br><span class="line">git tag -a v1.0 -m &quot;version 1.0 released&quot; 1094adb </span><br><span class="line">4. 使用命令查看所有标签</span><br><span class="line">git tag</span><br><span class="line">注意：标签不是按时间顺序列出，而是按字母排序。</span><br><span class="line">5. 查看标签的详细信息</span><br><span class="line">git show tag_name</span><br></pre></td></tr></table></figure>
-
-<p>注意：默认标签是打到最新提交的 commit 上的。如果想在之前提交的 commit 上打标签</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. 找到历史提交的commit</span><br><span class="line">git log --pretty=oneline --abbrev-commit</span><br><span class="line">c4c46bd (HEAD -&gt; dev, origin/master, master) init</span><br><span class="line">e06133a Update README.md</span><br><span class="line">1261493 Initial commit</span><br><span class="line">2. 对某个 commit 打标签</span><br><span class="line">git tag v0.9 c4c46bd</span><br></pre></td></tr></table></figure>
-
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2021/03/27/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/git/release/git%E6%A0%87%E7%AD%BE/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-组件学习/git/release/git远程库" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3715,6 +3611,110 @@
 <h4 id="一个端口可以建立多少连接"><a href="#一个端口可以建立多少连接" class="headerlink" title="一个端口可以建立多少连接"></a>一个端口可以建立多少连接</h4><p>一个TCP连接需要由四元组来形成，即(src_ip,src_port,dst_ip,dst_port)。假设有客户端建立了连接(src_ip1,src_port1,dst_ip1,dst_port1)，那么，如果我们还有listen在(src_ip1,src_port1)，那么当(dst_ip1,dst_port1)发送消息过来，系统应该把消息给谁？所以就说明了客户端占用了某一端口时，该端口就不能被其它进程listen了。<br>那么，对于有些童鞋，可能还有这样的疑问，是否一台机器就只能建立65535个连接了（端口16位限制）？非也，一个连接由四元组(src_ip,src_port,dst_ip,dst_port)形式，那么当(src_ip,src_port)一定时，变化的(dst_ip,dst_port)就可以建立更多连接了。<br>所以一台机器可以建立最多65535个连接是大错特错的。所有的一切都可以用四元组原理来分析即：一个TCP连接需要由四元组来形成，即(src_ip,src_port,dst_ip,dst_port),只要四个元素的组合中有一个元素不一样，那就可以区别不同的连接。</p>
 <h4 id="ftp端口的占用"><a href="#ftp端口的占用" class="headerlink" title="ftp端口的占用"></a>ftp端口的占用</h4><p>FTP服务器有两个端口，其中21端口用于连接，20端口用于传输数据.<br>进行FTP文件传输中，客户端首先连接到FTP服务器的21端口，进行用户的认证，认证成功后，要传输文件时，服务器会开一个端口为20来进行传输数据文件。<br>也就是说，端口20才是真正传输所用到的端口，端口21只用于FTP的登陆认证。我们平常下载文件时，会遇到下载到99%时，文件不完成，不能成功的下载。其实是因为文件下载完毕后，还要在21端口再行进行用户认证，而下载文件的时间如果过长，客户机与服务器的21端口的连接会被服务器认为是超时连接而中断掉，就是这个原因。解决方法就是设置21端口的响应时间。</p>
 
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-linux/release/VM0和VM8和VM1的区别" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/release/">release</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E7%BD%91%E5%8D%A1/" rel="tag">网卡</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2021/03/07/linux/release/VM0%E5%92%8CVM8%E5%92%8CVM1%E7%9A%84%E5%8C%BA%E5%88%AB/">
+            <time datetime="2021-03-07T13:54:54.000Z" itemprop="datePublished">2021-03-07</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/release/VM0和VM8和VM1的区别.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/release/VM0和VM8和VM1的区别.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/release/VM0和VM8和VM1的区别.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2021/03/07/linux/release/VM0%E5%92%8CVM8%E5%92%8CVM1%E7%9A%84%E5%8C%BA%E5%88%AB/">VM0和VM8和VM1的区别</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="VM0和VM8和VM1的区别"><a href="#VM0和VM8和VM1的区别" class="headerlink" title="VM0和VM8和VM1的区别"></a>VM0和VM8和VM1的区别</h2><h2 id="vmnet0，实际上就是一个虚拟的网桥"><a href="#vmnet0，实际上就是一个虚拟的网桥" class="headerlink" title="vmnet0，实际上就是一个虚拟的网桥"></a><strong>vmnet0，实际上就是一个虚拟的网桥</strong></h2><p>vmnet0，实际上就是一个虚拟的网桥，这个网桥有很若干个端口，一个端口用于连接你的Host，一个端口用于连接你的虚拟机，他们的位置是对等的，谁也不是谁的网关。所以在Bridged模式下，你可以让虚拟机成为一台和你的Host相同地位的机器。</p>
+<h2 id="vmnet1，这是一个Host-Only网络模式"><a href="#vmnet1，这是一个Host-Only网络模式" class="headerlink" title="vmnet1，这是一个Host-Only网络模式"></a><strong>vmnet1，这是一个Host-Only网络模式</strong></h2><p>vmnet1，这是一个Host-Only网络模式，这是用于建立一个与世隔绝的网络环境所用到的，其中vmnet1也是一个虚拟的交换机，交换机的一个 端口连接到你的Host上，另外一个端口连接到虚拟的DHCP服务器上（实际上是vmware的一个组件），另外剩下的端口就是连虚拟机了。虚拟网卡 “VMWare Virtual Ethernet Adapter for VMnet1”作为虚拟机的网关接口，为虚拟机提供服务。在虚拟机启动之后，如果你用ipconfig命令，你会很清楚的看到，你的默认网关就是指向 “VMWare Virtual Ethernet Adapter for VMnet1”网卡的地址的。（实际上它并不能提供路由，这是VMware设计使然，它是干了除了提供路由之外的一些事情——实际上是我也不知道它干了什 么事情），这里没有提供路由主要表现在没有提供NAT服务，使得虚拟机不可以访问Host-Only模式所指定的网段之外的地址。</p>
+<h2 id="vmnet8，这是一个NAT方式，最简单的组网方式了"><a href="#vmnet8，这是一个NAT方式，最简单的组网方式了" class="headerlink" title="vmnet8，这是一个NAT方式，最简单的组网方式了"></a><strong>vmnet8，这是一个NAT方式，最简单的组网方式了</strong></h2><p>vmnet8，这是一个NAT方式，最简单的组网方式了，从主机的“VMWare Virtual Ethernet Adapter for VMnet8”虚拟网卡出来，连接到vmnet8虚拟交换机，虚拟交换机的另外的口连接到虚拟的NAT服务器（这也是一个Vmware组件），还有一个口 连接到虚拟DHCP服务器，其他的口连虚拟机，虚拟机的网关即是“VMWare Virtual Ethernet Adapter for VMnet8”网卡所在的机器，废话，这肯定就是你的Host机器啦。同样，用ipconfig也可以看出来，你的虚拟机的默认网关也指向了你的 “VMWare Virtual Ethernet Adapter for VMnet8”虚拟网卡地址。相比之下，可以看出来，NAT组网方式和Host-Only方式，区别就在于是否多了一个NAT服务。</p>
+<p>host-only与wmnet1虚拟网卡进行通信</p>
+<p>NAT模式与VMnet8虚拟网卡进行通信</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2021/03/07/linux/release/VM0%E5%92%8CVM8%E5%92%8CVM1%E7%9A%84%E5%8C%BA%E5%88%AB/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

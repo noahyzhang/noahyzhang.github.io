@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,110 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-数据库/release/mysql字符集转换原理剖析及乱码原因" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/mysql/" rel="tag">mysql</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2020/12/27/%E6%95%B0%E6%8D%AE%E5%BA%93/release/mysql%E5%AD%97%E7%AC%A6%E9%9B%86%E8%BD%AC%E6%8D%A2%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E5%8F%8A%E4%B9%B1%E7%A0%81%E5%8E%9F%E5%9B%A0/">
-            <time datetime="2020-12-27T06:14:06.000Z" itemprop="datePublished">2020-12-27</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/数据库/release/mysql字符集转换原理剖析及乱码原因.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/数据库/release/mysql字符集转换原理剖析及乱码原因.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/数据库/release/mysql字符集转换原理剖析及乱码原因.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2020/12/27/%E6%95%B0%E6%8D%AE%E5%BA%93/release/mysql%E5%AD%97%E7%AC%A6%E9%9B%86%E8%BD%AC%E6%8D%A2%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E5%8F%8A%E4%B9%B1%E7%A0%81%E5%8E%9F%E5%9B%A0/">mysql字符集转换原理剖析及乱码原因</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h1 id="一、mysql字符集和校对"><a href="#一、mysql字符集和校对" class="headerlink" title="一、mysql字符集和校对"></a>一、mysql字符集和校对</h1><p>字符集是指一种从二进制编码到某类字符符号的映射。校对是指一组用于某个字符集的排序规则。在Mysql4.1和之后的版本中，每一类编码字符都有其对应的字符集和校对规则。</p>
-<h3 id="1-Mysql如何使用字符集"><a href="#1-Mysql如何使用字符集" class="headerlink" title="1. Mysql如何使用字符集"></a>1. Mysql如何使用字符集</h3><p>Mysql服务器有默认的字符集和校对规则，每个数据库也有自己的默认值，每个表也有自己的默认值。这是一个逐层继承的默认设置，最终最靠底层的默认设置将影响你创建的对象。这些默认值，至上而下的告诉MYSQL应该使用什么字符集来存储某个列。</p>
-<p>在这个“阶梯”的每一层，你都可以指定一个特定的字符集或者让服务器使用它的默认值。</p>
-<ul>
-<li>创建数据库时，将根据服务器上的 character_set_server 设置来设定该数据库的默认字符集</li>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2020/12/27/%E6%95%B0%E6%8D%AE%E5%BA%93/release/mysql%E5%AD%97%E7%AC%A6%E9%9B%86%E8%BD%AC%E6%8D%A2%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90%E5%8F%8A%E4%B9%B1%E7%A0%81%E5%8E%9F%E5%9B%A0/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-linux/release/Linux系统进程状态解析" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3722,6 +3618,110 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2020/10/25/linux/release/%E6%9F%A5%E7%9C%8B%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E8%A2%AB%E5%93%AA%E4%BA%9B%E8%BF%9B%E7%A8%8Bnattch/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-linux/release/linux下段错误的产生原因及调试方法" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/release/">release</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E6%AE%B5%E9%94%99%E8%AF%AF-core/" rel="tag">段错误 core</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2020/10/25/linux/release/linux%E4%B8%8B%E6%AE%B5%E9%94%99%E8%AF%AF%E7%9A%84%E4%BA%A7%E7%94%9F%E5%8E%9F%E5%9B%A0%E5%8F%8A%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/">
+            <time datetime="2020-10-25T09:11:41.000Z" itemprop="datePublished">2020-10-25</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/release/linux下段错误的产生原因及调试方法.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/release/linux下段错误的产生原因及调试方法.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/release/linux下段错误的产生原因及调试方法.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2020/10/25/linux/release/linux%E4%B8%8B%E6%AE%B5%E9%94%99%E8%AF%AF%E7%9A%84%E4%BA%A7%E7%94%9F%E5%8E%9F%E5%9B%A0%E5%8F%8A%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/">linux下段错误的产生原因及调试方法</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><p>linux下 c&#x2F;c++ 编程最常见的就是错误就是段错误了，本文来分析一下段错误为什么产生？产生的原因以及如何处理。</p>
+<h2 id="1-段错误介绍"><a href="#1-段错误介绍" class="headerlink" title="1. 段错误介绍"></a>1. 段错误介绍</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A segmentation fault (often shortened to segfault) is a particular error condition that can occur during the operation of computer software. In short, a segmentation fault occurs when a program attempts to access a memory location that it is not allowed to access, or attempts to access a memory location in a way that is not allowed (e.g., attempts to write to a read-only location, or to overwrite part of the operating system). Systems based on processors like the Motorola 68000 tend to refer to these events as Address or Bus errors.</span><br><span class="line"></span><br><span class="line">Segmentation is one approach to memory management and protection in the operating system. It has been superseded by paging for most purposes, but much of the terminology of segmentation is still used, &quot;segmentation fault&quot; being an example. Some operating systems still have segmentation at some logical level although paging is used as the main memory management policy.</span><br><span class="line"></span><br><span class="line">On Unix-like operating systems, a process that accesses invalid memory receives the SIGSEGV signal. On Microsoft Windows, a process that accesses invalid memory receives the STATUS_ACCESS_VIOLATION exception.</span><br></pre></td></tr></table></figure>
+
+<p>分段错误(通常简称段错误)是计算机软件运行过程中可能出现的一种特殊的错误情况。简而言之,出现段错误当一个程序试图访问不允许访问的内存位置,或试图访问一个内存位置的方式是不允许的(例如,试图写一个只读的位置,或覆盖操作系统的一部分)。基于像摩托罗拉68000处理器的系统往往将这些事件称为地址或总线错误。</p>
+<p>分段是操作系统中内存管理和保护的一种方法。在大多数情况下，它已经被分页所取代，但是分段的许多术语仍然被使用，“分段故障”就是一个例子。尽管分页被用作主要的内存管理策略，但一些操作系统在某些逻辑级别上仍然有分段。</p>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2020/10/25/linux/release/linux%E4%B8%8B%E6%AE%B5%E9%94%99%E8%AF%AF%E7%9A%84%E4%BA%A7%E7%94%9F%E5%8E%9F%E5%9B%A0%E5%8F%8A%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,60 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-linux/内存管理/jemalloc/编译" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><p>编译 jemalloc </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 需要在编译时指定 `--enable-prof` 参数，`--enable-prof-libunwind` 打开 libunwind 堆栈。</span><br><span class="line"></span><br><span class="line">mkdir build </span><br><span class="line">cd build</span><br><span class="line">../configure --prefix=/usr/local/jemalloc_5.2.1 --enable-debug --enable-prof --enable-log</span><br><span class="line">make -j4 </span><br><span class="line">sudo make install</span><br><span class="line"></span><br><span class="line"># 编译 aarch64</span><br><span class="line">mkdir build_aarch64</span><br><span class="line">cd build_aarch64</span><br><span class="line">../configure --prefix=/usr/local/jemalloc_5.2.1  --host=aarch64-linux-gnu --target=aarch64-linux-gnu --enable-debug --enable-prof --with-lg-page=16  --enable-prof-libunwind</span><br><span class="line">make -j10</span><br><span class="line"></span><br><span class="line">--enable-prof-libunwind: 打开 libunwind 堆栈</span><br><span class="line">--with-lg-page=16 设置 page size 为 65536。用于交叉编译</span><br><span class="line"></span><br><span class="line">--with-lg-page=&lt;lg-page&gt; 指定系统页面大小，以 2 为基数。此选项仅用于交叉编译</span><br><span class="line">--with-lg-page-size=&lt;lg-page-size&gt; </span><br></pre></td></tr></table></figure>
-
-<p>问题：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">一、 交叉编译后，在 arm 上使用出现 &lt;jemalloc&gt;: Unsupported system page size</span><br><span class="line">可能是因为在 x86 上编译的 jemalloc 使用了 x86 特有的页面大小，而在 aarch64 上使用时无法识别.</span><br><span class="line">x86 上 getconf PAGE_SIZE. 得到 4096</span><br><span class="line">aarch64 上使用 $ python -c &#x27;import os; print(os.sysconf(&quot;SC_PAGE_SIZE&quot;))&#x27;  得到 65536</span><br><span class="line">因此，使用 --with-lg-page=16 指定系统页面大小。解决此问题</span><br><span class="line"></span><br><span class="line">二、想要增加 libunwind.so 来进行获取堆栈</span><br><span class="line">增加环境变量</span><br><span class="line">export CPPFLAGS=&quot;-I/data/App/toolchain/target/out_aarch64/libunwind-1.5.0/include&quot;</span><br><span class="line">export LDFLAGS=&quot;-L/data/App/toolchain/target/out_aarch64/libunwind-1.5.0/lib -Wl,-rpath=/data/App/toolchain/target/out_aarch64/libunwind-1.5.0/lib&quot;</span><br><span class="line"></span><br><span class="line">使用 libunwind.so 1.6.2 版本，会 core</span><br><span class="line">换成 libunwind.so 1.1 版本，不行，不支持 aarch64</span><br><span class="line">换成 libunwind.so 1.5.0 版本，可以。**注意要把生成的 unwind/bin 下的所有 lib 都拷贝到指定环境 **</span><br><span class="line">现在看起来生成的 heap 文件，使用 jeprof 可以解析出堆栈信息了。但是这些信息并没有被解析成符号</span><br><span class="line">是因为 addr2line 这个二进制没有的缘故，加上即可。现在 jeprof 一些基本选项可以使用</span><br><span class="line"></span><br><span class="line">三、对于 jeprof 的一些其他选项，比如 --svg</span><br><span class="line">需要 Graphviz 的 dot 这些工具。交叉编译 Graphviz 然后使用 dot 即可</span><br><span class="line">dot 在使用时，发现使用不正常，lib 文件放的位置不正确，需要调整。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/10/11/linux/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/jemalloc/%E7%BC%96%E8%AF%91/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-linux/内存管理/ASAN/原理1" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3496,6 +3442,105 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2023/10/11/linux/release/%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98%E7%9A%84%E5%8E%9F%E7%90%86/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-linux/release/动态库搜索路径" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/release/">release</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/10/11/linux/release/%E5%8A%A8%E6%80%81%E5%BA%93%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84/">
+            <time datetime="2023-10-11T06:30:35.777Z" itemprop="datePublished">2023-10-11</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/release/动态库搜索路径.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/release/动态库搜索路径.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/release/动态库搜索路径.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/10/11/linux/release/%E5%8A%A8%E6%80%81%E5%BA%93%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84/">linux 中动态库的搜索路径</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="linux-中动态库的搜索路径"><a href="#linux-中动态库的搜索路径" class="headerlink" title="linux 中动态库的搜索路径"></a>linux 中动态库的搜索路径</h2><p>在 linux 中动态库的搜索路径一般有如下方法指定：</p>
+<ul>
+<li><p>在配置文件 <code>/etc/ld.so.conf</code> 中指定动态库搜索路径</p>
+<p>添加完一定要记得 ldconfig 刷新一下</p>
+</li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2023/10/11/linux/release/%E5%8A%A8%E6%80%81%E5%BA%93%E6%90%9C%E7%B4%A2%E8%B7%AF%E5%BE%84/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

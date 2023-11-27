@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,105 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-linux/内存管理/tcmalloc/原理" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">内存管理</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/tcmalloc/">tcmalloc</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/10/11/linux/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/tcmalloc/%E5%8E%9F%E7%90%86/">
-            <time datetime="2023-10-11T06:30:35.793Z" itemprop="datePublished">2023-10-11</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/内存管理/tcmalloc/原理.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/内存管理/tcmalloc/原理.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/内存管理/tcmalloc/原理.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/10/11/linux/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/tcmalloc/%E5%8E%9F%E7%90%86/">原理</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h3 id="一、总体概述"><a href="#一、总体概述" class="headerlink" title="一、总体概述"></a>一、总体概述</h3><ul>
-<li><p>ptmalloc2 在机器 <code>4核 CPU 2.8GHz</code> 上对于小对象，执行 <code>malloc/free</code> 两个操作大约需要 300 ns，而对于同一操作，tcmalloc 只需要大约 50ns。</p>
-</li>
-<li><p>tcmalloc 减少了多线程程序的锁竞争。对于小对象，使用 TLS，几乎没有竞争。对于大对象，tcmalloc 尝试使用细粒度且高效的自旋锁。在 ptmalloc2 中，不同的分配区之间的内存不能发生移动、复用，可能导致大量的空间浪费。</p>
-<p>比如，有一个多阶段的任务，第一阶段为某一个数据结构申请 100MB 内存，第一阶段完成后，释放了空间；在第二阶段，在同一地址空间开始申请内存，但是有很大可能使用的是不同的分配区，此阶段不会重用第一阶段留下的任何内存，并且会在新的分配区再添加 100MB 空间。造成内存暴增问题</p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/10/11/linux/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/tcmalloc/%E5%8E%9F%E7%90%86/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-linux/内存管理/tcmalloc/介绍" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3530,6 +3431,60 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2023/10/11/linux/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/jemalloc/%E5%8F%82%E6%95%B0%E5%92%8C%E4%BC%98%E5%8C%96%E6%80%9D%E8%B7%AF/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-linux/内存管理/jemalloc/编译" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><p>编译 jemalloc </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># 需要在编译时指定 `--enable-prof` 参数，`--enable-prof-libunwind` 打开 libunwind 堆栈。</span><br><span class="line"></span><br><span class="line">mkdir build </span><br><span class="line">cd build</span><br><span class="line">../configure --prefix=/usr/local/jemalloc_5.2.1 --enable-debug --enable-prof --enable-log</span><br><span class="line">make -j4 </span><br><span class="line">sudo make install</span><br><span class="line"></span><br><span class="line"># 编译 aarch64</span><br><span class="line">mkdir build_aarch64</span><br><span class="line">cd build_aarch64</span><br><span class="line">../configure --prefix=/usr/local/jemalloc_5.2.1  --host=aarch64-linux-gnu --target=aarch64-linux-gnu --enable-debug --enable-prof --with-lg-page=16  --enable-prof-libunwind</span><br><span class="line">make -j10</span><br><span class="line"></span><br><span class="line">--enable-prof-libunwind: 打开 libunwind 堆栈</span><br><span class="line">--with-lg-page=16 设置 page size 为 65536。用于交叉编译</span><br><span class="line"></span><br><span class="line">--with-lg-page=&lt;lg-page&gt; 指定系统页面大小，以 2 为基数。此选项仅用于交叉编译</span><br><span class="line">--with-lg-page-size=&lt;lg-page-size&gt; </span><br></pre></td></tr></table></figure>
+
+<p>问题：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">一、 交叉编译后，在 arm 上使用出现 &lt;jemalloc&gt;: Unsupported system page size</span><br><span class="line">可能是因为在 x86 上编译的 jemalloc 使用了 x86 特有的页面大小，而在 aarch64 上使用时无法识别.</span><br><span class="line">x86 上 getconf PAGE_SIZE. 得到 4096</span><br><span class="line">aarch64 上使用 $ python -c &#x27;import os; print(os.sysconf(&quot;SC_PAGE_SIZE&quot;))&#x27;  得到 65536</span><br><span class="line">因此，使用 --with-lg-page=16 指定系统页面大小。解决此问题</span><br><span class="line"></span><br><span class="line">二、想要增加 libunwind.so 来进行获取堆栈</span><br><span class="line">增加环境变量</span><br><span class="line">export CPPFLAGS=&quot;-I/data/App/toolchain/target/out_aarch64/libunwind-1.5.0/include&quot;</span><br><span class="line">export LDFLAGS=&quot;-L/data/App/toolchain/target/out_aarch64/libunwind-1.5.0/lib -Wl,-rpath=/data/App/toolchain/target/out_aarch64/libunwind-1.5.0/lib&quot;</span><br><span class="line"></span><br><span class="line">使用 libunwind.so 1.6.2 版本，会 core</span><br><span class="line">换成 libunwind.so 1.1 版本，不行，不支持 aarch64</span><br><span class="line">换成 libunwind.so 1.5.0 版本，可以。**注意要把生成的 unwind/bin 下的所有 lib 都拷贝到指定环境 **</span><br><span class="line">现在看起来生成的 heap 文件，使用 jeprof 可以解析出堆栈信息了。但是这些信息并没有被解析成符号</span><br><span class="line">是因为 addr2line 这个二进制没有的缘故，加上即可。现在 jeprof 一些基本选项可以使用</span><br><span class="line"></span><br><span class="line">三、对于 jeprof 的一些其他选项，比如 --svg</span><br><span class="line">需要 Graphviz 的 dot 这些工具。交叉编译 Graphviz 然后使用 dot 即可</span><br><span class="line">dot 在使用时，发现使用不正常，lib 文件放的位置不正确，需要调整。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2023/10/11/linux/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/jemalloc/%E7%BC%96%E8%AF%91/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

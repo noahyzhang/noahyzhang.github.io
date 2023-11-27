@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,103 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-数据库/release/宽表和窄表" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/%E5%AE%BD%E8%A1%A8-%E7%AA%84%E8%A1%A8/" rel="tag">宽表 窄表</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2020/03/14/%E6%95%B0%E6%8D%AE%E5%BA%93/release/%E5%AE%BD%E8%A1%A8%E5%92%8C%E7%AA%84%E8%A1%A8/">
-            <time datetime="2020-03-14T13:11:24.000Z" itemprop="datePublished">2020-03-14</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/数据库/release/宽表和窄表.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/数据库/release/宽表和窄表.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/数据库/release/宽表和窄表.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2020/03/14/%E6%95%B0%E6%8D%AE%E5%BA%93/release/%E5%AE%BD%E8%A1%A8%E5%92%8C%E7%AA%84%E8%A1%A8/">数据库宽表与窄表</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-            
-        
-        
-            <h3 id="一、宽表"><a href="#一、宽表" class="headerlink" title="一、宽表"></a>一、宽表</h3><p>（1）宽表：从字面意义上讲就是字段比较多的数据库表。通常是指业务主题相关的指标、维度、属性关联在一起的一张数据库表。由于把不同的内容都放在同一张表存储，宽表已经不符合三范式的模型设计规范，随之带来的主要坏处就是数据的大量冗余，与之相对应的好处就是查询性能的提高与便捷。这种宽表的设计广泛应用于数据挖掘模型训练前的数据准备，通过把相关字段放在同一张表中，可以大大提高数据挖掘模型训练过程中迭代计算时的效率问题。（一句话，空间换时间，便于训练迭代、减少表关联数量，修改少量数据时不需要该多张表）</p>
-<p>（2）“宽表”特点：一个表就是一个class，每个字段就是一个filed，操作简单。但不便扩展。</p>
-<h3 id="二、窄表"><a href="#二、窄表" class="headerlink" title="二、窄表"></a>二、窄表</h3><p>（1）窄表：严格按照数据库设计三范式。尽量减少数据冗余，但是缺点是修改一个数据可能需要修改多张表。</p>
-<p>（2）“窄表”特点：方便扩展，能适应各种复杂的数据结构（树形、继承等），无论有多少配置，都不用修改表结构。但代码逻辑可能需要包装一下。</p>
-
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-linux/release/date命令时间戳和时间之间的转换" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         

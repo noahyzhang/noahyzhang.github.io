@@ -6,7 +6,7 @@
   <link href="https://noahyzhang.github.io/atom.xml" rel="self"/>
   
   <link href="https://noahyzhang.github.io/"/>
-  <updated>2023-11-26T10:05:36.827Z</updated>
+  <updated>2023-11-26T09:32:44.958Z</updated>
   <id>https://noahyzhang.github.io/</id>
   
   <author>
@@ -15,26 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="https://noahyzhang.github.io/2023/11/26/hello-world/"/>
-    <id>https://noahyzhang.github.io/2023/11/26/hello-world/</id>
-    <published>2023-11-26T10:05:36.827Z</published>
-    <updated>2023-11-26T10:05:36.827Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>memcache 使用</title>
@@ -539,6 +519,34 @@
     <category term="手写操作系统" scheme="https://noahyzhang.github.io/categories/%E9%A1%B9%E7%9B%AE/%E6%89%8B%E5%86%99%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     <category term="其他" scheme="https://noahyzhang.github.io/categories/%E9%A1%B9%E7%9B%AE/%E6%89%8B%E5%86%99%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E5%85%B6%E4%BB%96/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://noahyzhang.github.io/2023/10/21/%E9%A1%B9%E7%9B%AE/%E6%89%8B%E5%86%99%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E4%BF%9D%E6%8A%A4%E6%A8%A1%E5%BC%8F/README/"/>
+    <id>https://noahyzhang.github.io/2023/10/21/%E9%A1%B9%E7%9B%AE/%E6%89%8B%E5%86%99%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E4%BF%9D%E6%8A%A4%E6%A8%A1%E5%BC%8F/README/</id>
+    <published>2023-10-21T14:22:16.750Z</published>
+    <updated>2023-10-21T14:22:16.750Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><a href="/%E9%A1%B9%E7%9B%AE/%E6%89%8B%E5%86%99%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">返回上一级 [手写操作系统]</a></li><li><a href="/%E9%A1%B9%E7%9B%AE/%E6%89%8B%E5%86%99%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E4%BF%9D%E6%8A%A4%E6%A8%A1%E5%BC%8F/">保护模式</a><ul><li><a href="/%E9%A1%B9%E7%9B%AE/%E6%89%8B%E5%86%99%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E4%BF%9D%E6%8A%A4%E6%A8%A1%E5%BC%8F/1.%E4%BF%9D%E6%8A%A4%E6%A8%A1%E5%BC%8F.md">1.保护模式</a></li><li><a href="/%E9%A1%B9%E7%9B%AE/%E6%89%8B%E5%86%99%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E4%BF%9D%E6%8A%A4%E6%A8%A1%E5%BC%8F/2.%E4%BF%9D%E6%8A%A4%E6%A8%A1%E5%BC%8F2.md">2.保护模式2</a></li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/%E9%A1%B9%E7%9B%AE/%E6%89%8B%E5%86%99%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/&quot;&gt;返回上一级 [手写操作系统]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/%E9%A1%</summary>
+      
+    
+    
+    
+    <category term="项目" scheme="https://noahyzhang.github.io/categories/%E9%A1%B9%E7%9B%AE/"/>
+    
+    <category term="手写操作系统" scheme="https://noahyzhang.github.io/categories/%E9%A1%B9%E7%9B%AE/%E6%89%8B%E5%86%99%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="保护模式" scheme="https://noahyzhang.github.io/categories/%E9%A1%B9%E7%9B%AE/%E6%89%8B%E5%86%99%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E4%BF%9D%E6%8A%A4%E6%A8%A1%E5%BC%8F/"/>
     
     
   </entry>

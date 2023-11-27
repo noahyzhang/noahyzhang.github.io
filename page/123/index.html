@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,110 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-编程语言/c++语言/日常笔记/explicit关键字" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c-%E8%AF%AD%E8%A8%80/">c++语言</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c-%E8%AF%AD%E8%A8%80/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/">日常笔记</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/01/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++%E8%AF%AD%E8%A8%80/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/explicit%E5%85%B3%E9%94%AE%E5%AD%97/">
-            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/编程语言/c++语言/日常笔记/explicit关键字.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/编程语言/c++语言/日常笔记/explicit关键字.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/编程语言/c++语言/日常笔记/explicit关键字.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/01/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++%E8%AF%AD%E8%A8%80/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/explicit%E5%85%B3%E9%94%AE%E5%AD%97/">C++中 explicit 关键字</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h2 id="c-中-explicit-关键字详解"><a href="#c-中-explicit-关键字详解" class="headerlink" title="c++ 中 explicit 关键字详解"></a>c++ 中 explicit 关键字详解</h2><p>c++ 中的 explicit 关键字只能用于修饰只有一个参数的类构造函数，他的作用是表明该构造函数是显式的。</p>
-<p>与之对应的 implicit 关键字则表明构造函数是隐式的，类构造函数默认情况下即声明为 implicit 隐式的</p>
-<h4 id="一、隐式声明的场景"><a href="#一、隐式声明的场景" class="headerlink" title="一、隐式声明的场景"></a>一、隐式声明的场景</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">char</span>* str_;</span><br><span class="line">    <span class="type">int</span> size_;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">A</span>(<span class="type">int</span> size) : <span class="built_in">size_</span>(size) &#123;</span><br><span class="line">        str_ = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span>*&gt;(<span class="built_in">malloc</span>(size+<span class="number">1</span>));</span><br><span class="line">        <span class="built_in">memset</span>(str_, <span class="number">0</span>, size_+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">A</span>(<span class="type">const</span> <span class="type">char</span>* p) &#123;</span><br><span class="line">        <span class="type">int</span> size = <span class="built_in">strlen</span>(p);</span><br><span class="line">        str_ = <span class="built_in">reinterpret_cast</span>&lt;<span class="type">char</span>*&gt;(<span class="built_in">malloc</span>(size+<span class="number">1</span>));</span><br><span class="line">        <span class="built_in">strcpy</span>(str_, p);</span><br><span class="line">        size_ = <span class="built_in">strlen</span>(str_);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test_A</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">A <span class="title">a1</span><span class="params">(<span class="number">24</span>)</span></span>;        <span class="comment">// 1. OK，正常用法</span></span><br><span class="line">    A a2 = <span class="number">10</span>;       <span class="comment">// 2. OK，发生隐式转换，为 A 预分配 10 字节大小的内存</span></span><br><span class="line">    A a3;            <span class="comment">// 3. NO，没有默认构造函数</span></span><br><span class="line">    <span class="function">A <span class="title">a4</span><span class="params">(<span class="string">&quot;abc&quot;</span>)</span></span>;     <span class="comment">// 4. OK，正常用法</span></span><br><span class="line">    A a5 = <span class="string">&quot;abc&quot;</span>;    <span class="comment">// 5. OK，调用 A(const char*)</span></span><br><span class="line">    A a6 = <span class="string">&#x27;c&#x27;</span>;      <span class="comment">// 6. OK，调用 A(int), 且 size 等于 &#x27;c&#x27; 的 ASCII 值</span></span><br><span class="line">    a1 = <span class="number">2</span>;          <span class="comment">// 7. OK，发生隐式转换，为 A 预分配 2 字节大小的内存</span></span><br><span class="line">    a3 = a1;         <span class="comment">// 8. 编译正确，但应该重载 = 操作符，正确释放内存</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>如上，表达式 2 中的 <code>A a2 = 10</code> 进行解释，在 C++ 中，如果构造函数只有一个参数时，那么在编译的时候就会有一个缺省的转换操作：将该构造函数对应数据类型转换为该类对象。</p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/01/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++%E8%AF%AD%E8%A8%80/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/explicit%E5%85%B3%E9%94%AE%E5%AD%97/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-编程语言/c++语言/日常笔记/gtest使用" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3700,6 +3596,110 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2023/01/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++%E8%AF%AD%E8%A8%80/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/typename%E7%94%A8%E6%B3%95/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-编程语言/c++语言/日常笔记/函数重载注意点" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c-%E8%AF%AD%E8%A8%80/">c++语言</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c-%E8%AF%AD%E8%A8%80/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/">日常笔记</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/01/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++%E8%AF%AD%E8%A8%80/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E6%B3%A8%E6%84%8F%E7%82%B9/">
+            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/编程语言/c++语言/日常笔记/函数重载注意点.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/编程语言/c++语言/日常笔记/函数重载注意点.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/编程语言/c++语言/日常笔记/函数重载注意点.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/01/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++%E8%AF%AD%E8%A8%80/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E6%B3%A8%E6%84%8F%E7%82%B9/">函数重载注意点</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h4 id="一、为什么不要重载-和-操作符"><a href="#一、为什么不要重载-和-操作符" class="headerlink" title="一、为什么不要重载 &amp;&amp; 和 || 操作符"></a>一、为什么不要重载 &amp;&amp; 和 || 操作符</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int a1 = 1;</span><br><span class="line">int a2 = 0;</span><br><span class="line">if (a1 || a2++) </span><br><span class="line">if (a2 &amp;&amp; a1++) </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如上，第一个 if 判断条件因为 a1 为真，所以整个逻辑或就是真，不再执行 <code>a2++</code> </li>
+<li>第二个 if 判断条件因为 a2 为假，导致整个逻辑与为假，不再执行 <code>a1++</code></li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2023/01/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++%E8%AF%AD%E8%A8%80/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/%E5%87%BD%E6%95%B0%E9%87%8D%E8%BD%BD%E6%B3%A8%E6%84%8F%E7%82%B9/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

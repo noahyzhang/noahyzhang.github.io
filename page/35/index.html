@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,105 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-项目/Linux研究/fork原理" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E9%A1%B9%E7%9B%AE/">项目</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E9%A1%B9%E7%9B%AE/Linux%E7%A0%94%E7%A9%B6/">Linux研究</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/10/11/%E9%A1%B9%E7%9B%AE/Linux%E7%A0%94%E7%A9%B6/fork%E5%8E%9F%E7%90%86/">
-            <time datetime="2023-10-11T06:30:36.177Z" itemprop="datePublished">2023-10-11</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/项目/Linux研究/fork原理.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/项目/Linux研究/fork原理.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/项目/Linux研究/fork原理.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/10/11/%E9%A1%B9%E7%9B%AE/Linux%E7%A0%94%E7%A9%B6/fork%E5%8E%9F%E7%90%86/">linux 中 fork 原理</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h3 id="二、Linux-中-fork-的原理"><a href="#二、Linux-中-fork-的原理" class="headerlink" title="二、Linux 中 fork 的原理"></a>二、Linux 中 fork 的原理</h3><p>Linux 在创建进程时，使用 <code>fork</code> 通过拷贝当前进程创建一个子进程。子进程与父进程的区别仅仅在于 PID（每个进程唯一）、PPID（父进程的进程号）和某些资源和统计量（例如，挂起的信号，他没有必要继承）。然后使用 exec 函数读取可执行文件并将其载入地址空间开始运行。</p>
-<p>Linux 的 fork 使用“写时拷贝”（<code>copy on write</code>）页实现。写时拷贝是一种可以推迟甚至免除拷贝数据的计数。内核在 fork 的时候并不复制整个进程地址空间，而是让父进程和子进程共享一个拷贝。只有在需要写入的时候，数据才会被复制，从而使各个进程拥有各自的拷贝。也就是说，资源的复制只有在需要写入的时候才进行，在此之前，只是以只读方式共享。那么，这样的话，fork 的实际开销就是复制父进程的页表以及给子进程创建唯一的进程描述符。在一般情况下，进程创建后都会马上运行一个可执行的文件，这种优化可以避免拷贝大量根本就不会被使用的数据（地址空间常常包含数十M的数据）。</p>
-<h4 id="1-fork-的底层实现"><a href="#1-fork-的底层实现" class="headerlink" title="1. fork 的底层实现"></a>1. fork 的底层实现</h4><p>以下实现来自于 Linux 2.6 版本。</p>
-<p>Linux 使用 <code>clone()</code> 系统调用，通过一系列的参数标志来指明父、子进程需要共享的资源。然后由 <code>clone()</code> 函数去调用 <code>do_fork()</code>。其中 <code>do_fork()</code> 完成了创建进程的大部分工作。其内部会调用 <code>copy_process()</code> 函数，然后让进程开始运行。<code>copy_process()</code> 函数会做如下事情：</p>
-<ul>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/10/11/%E9%A1%B9%E7%9B%AE/Linux%E7%A0%94%E7%A9%B6/fork%E5%8E%9F%E7%90%86/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-项目/9天带你走进无锁化编程/1.对于线程安全的理解" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3672,6 +3573,60 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2023/10/11/%E9%A1%B9%E7%9B%AE/9%E5%A4%A9%E5%B8%A6%E4%BD%A0%E8%B5%B0%E8%BF%9B%E6%97%A0%E9%94%81%E5%8C%96%E7%BC%96%E7%A8%8B/9.%E6%80%9D%E8%80%83%E4%B8%8E%E5%B1%95%E6%9C%9B/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-项目/9天带你走进无锁化编程/README" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><ul>
+<li><a href="/%E9%A1%B9%E7%9B%AE/">返回上一级 [项目]</a></li>
+<li><a href="/%E9%A1%B9%E7%9B%AE/9%E5%A4%A9%E5%B8%A6%E4%BD%A0%E8%B5%B0%E8%BF%9B%E6%97%A0%E9%94%81%E5%8C%96%E7%BC%96%E7%A8%8B/">9天带你走进无锁化编程</a><ul>
+<li><a href="/%E9%A1%B9%E7%9B%AE/9%E5%A4%A9%E5%B8%A6%E4%BD%A0%E8%B5%B0%E8%BF%9B%E6%97%A0%E9%94%81%E5%8C%96%E7%BC%96%E7%A8%8B/1.%E5%AF%B9%E4%BA%8E%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E7%90%86%E8%A7%A3.md">1.对于线程安全的理解</a></li>
+<li><a href="/%E9%A1%B9%E7%9B%AE/9%E5%A4%A9%E5%B8%A6%E4%BD%A0%E8%B5%B0%E8%BF%9B%E6%97%A0%E9%94%81%E5%8C%96%E7%BC%96%E7%A8%8B/2.%E5%AF%B9%E4%BA%8E%E5%8E%9F%E5%AD%90%E6%93%8D%E4%BD%9C%E7%9A%84%E7%90%86%E8%A7%A3.md">2.对于原子操作的理解</a></li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2023/10/11/%E9%A1%B9%E7%9B%AE/9%E5%A4%A9%E5%B8%A6%E4%BD%A0%E8%B5%B0%E8%BF%9B%E6%97%A0%E9%94%81%E5%8C%96%E7%BC%96%E7%A8%8B/README/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

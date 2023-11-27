@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,105 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-组件学习/redis/数据结构与对象/4.跳表" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/">组件学习</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/redis/">redis</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/redis/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E5%AF%B9%E8%B1%A1/">数据结构与对象</a>
-    </div>
-
-                        
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/10/11/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/redis/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E5%AF%B9%E8%B1%A1/4.%E8%B7%B3%E8%A1%A8/">
-            <time datetime="2023-10-11T06:30:36.075Z" itemprop="datePublished">2023-10-11</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/组件学习/redis/数据结构与对象/4.跳表.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/组件学习/redis/数据结构与对象/4.跳表.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/组件学习/redis/数据结构与对象/4.跳表.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/10/11/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/redis/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E5%AF%B9%E8%B1%A1/4.%E8%B7%B3%E8%A1%A8/">跳表</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><p>跳表的查询、插入、删除的平均时间复杂度为 <code>O(logN)</code></p>
-<h4 id="为什么-Redis-选择使用跳表而不是红黑树来实现有序集合？"><a href="#为什么-Redis-选择使用跳表而不是红黑树来实现有序集合？" class="headerlink" title="为什么 Redis 选择使用跳表而不是红黑树来实现有序集合？"></a>为什么 Redis 选择使用跳表而不是红黑树来实现有序集合？</h4><p>Redis 中的有序集合(zset) 支持的操作：</p>
-<ol>
-<li>插入一个元素</li>
-<li>删除一个元素</li>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/10/11/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/redis/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E5%AF%B9%E8%B1%A1/4.%E8%B7%B3%E8%A1%A8/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-组件学习/redis/数据结构与对象/3.哈希表" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3672,6 +3573,105 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2023/10/11/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/redis/%E5%AE%9E%E7%8E%B0/1.%E6%95%B0%E6%8D%AE%E5%BA%93/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-组件学习/redis/实现/2.持久化RDB和AOF" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/">组件学习</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/redis/">redis</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/redis/%E5%AE%9E%E7%8E%B0/">实现</a>
+    </div>
+
+                        
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/10/11/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/redis/%E5%AE%9E%E7%8E%B0/2.%E6%8C%81%E4%B9%85%E5%8C%96RDB%E5%92%8CAOF/">
+            <time datetime="2023-10-11T06:30:36.074Z" itemprop="datePublished">2023-10-11</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/组件学习/redis/实现/2.持久化RDB和AOF.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/组件学习/redis/实现/2.持久化RDB和AOF.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/组件学习/redis/实现/2.持久化RDB和AOF.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/10/11/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/redis/%E5%AE%9E%E7%8E%B0/2.%E6%8C%81%E4%B9%85%E5%8C%96RDB%E5%92%8CAOF/">持久化</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="一、RDB-持久化"><a href="#一、RDB-持久化" class="headerlink" title="一、RDB 持久化"></a>一、RDB 持久化</h2><p>可以将 redis 在内存中的数据库状态保存到磁盘里面，避免数据因为服务器进程退出而丢失。</p>
+<p>RDB 持久化既可以手动执行，也可以根据服务器配置选项定期执行，该功能可以将某个时间点上的数据库状态保存到一个 RDB 文件中。</p>
+<p>RDB 持久化功能所生成的 RDB 文件是一个经过压缩的二进制文件。有 SAVE 和 BGSAVE 命令</p>
+<ul>
+<li>SAVE 命令会阻塞 Redis 服务器进程，直到 RDB 文件创建完毕为止，在服务器进程阻塞期间，服务器不能处理任何命令请求</li>
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2023/10/11/%E7%BB%84%E4%BB%B6%E5%AD%A6%E4%B9%A0/redis/%E5%AE%9E%E7%8E%B0/2.%E6%8C%81%E4%B9%85%E5%8C%96RDB%E5%92%8CAOF/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">

@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,110 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-编程语言/c++语言/未总结/编译选项" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c-%E8%AF%AD%E8%A8%80/">c++语言</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c-%E8%AF%AD%E8%A8%80/%E6%9C%AA%E6%80%BB%E7%BB%93/">未总结</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2023/01/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++%E8%AF%AD%E8%A8%80/%E6%9C%AA%E6%80%BB%E7%BB%93/%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9/">
-            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/编程语言/c++语言/未总结/编译选项.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/编程语言/c++语言/未总结/编译选项.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/编程语言/c++语言/未总结/编译选项.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2023/01/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++%E8%AF%AD%E8%A8%80/%E6%9C%AA%E6%80%BB%E7%BB%93/%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9/">undefined</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><p>man 手册：<a target="_blank" rel="noopener" href="https://man7.org/linux/man-pages/man8/ld.so.8.html">https://man7.org/linux/man-pages/man8/ld.so.8.html</a></p>
-<p>LD_PRELOAD 指定多个库文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 使用冒号在文件之间做分隔。man 手册提到也支持空格，但写到 shell 中会出错，不要使用</span><br><span class="line">LD_PRELOAD=path1:path2</span><br><span class="line">LD_PRELOAD=&quot;path1 path2&quot; // 不建议使用</span><br><span class="line"></span><br><span class="line">man 手册：</span><br><span class="line">The items of the list can be separated by spaces or</span><br><span class="line">              colons, and there is no support for escaping either</span><br><span class="line">              separator.  The objects are searched for using the rules</span><br><span class="line">              given under DESCRIPTION.  Objects are searched for and</span><br><span class="line">              added to the link map in the left-to-right order specified</span><br><span class="line">              in the list.</span><br><span class="line">不支持转义分隔符。以列表中指定的从左到右的顺序搜索对象并将其添加到链接映射中</span><br></pre></td></tr></table></figure>
-
-<p>LD_LIBRARY_PATH</p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2023/01/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/c++%E8%AF%AD%E8%A8%80/%E6%9C%AA%E6%80%BB%E7%BB%93/%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-编程语言/c++语言/未总结/线程" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3669,6 +3565,91 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2023/01/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/ios/cocoapods/%E4%BD%BF%E7%94%A8/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-编程语言/ios/oc/LLDB使用" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/ios/">ios</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/ios/oc/">oc</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/linux/" rel="tag">linux</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2023/01/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/ios/oc/LLDB%E4%BD%BF%E7%94%A8/">
+            <time datetime="2023-01-19T03:11:41.000Z" itemprop="datePublished">2023-01-19</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/编程语言/ios/oc/LLDB使用.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/编程语言/ios/oc/LLDB使用.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/编程语言/ios/oc/LLDB使用.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2023/01/19/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/ios/oc/LLDB%E4%BD%BF%E7%94%A8/">undefined</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+            
+        
+        
+            <p>LLDB调试指令使用：<a target="_blank" rel="noopener" href="https://www.wenjiangs.com/doc/leivwvf1">https://www.wenjiangs.com/doc/leivwvf1</a></p>
+
             </div>
         
         <footer class="article-footer">

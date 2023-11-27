@@ -2623,7 +2623,7 @@
                     </li> 
                      <li class="file"><a href="/2023/10/21/%E9%A1%B9%E7%9B%AE/README/"></a></li>  </ul> 
                     </li> 
-                     <li class="file"><a href="/2023/11/26/hello-world/">Hello World</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -2695,110 +2695,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-linux/release/VM0和VM8和VM1的区别" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/linux/">linux</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/linux/release/">release</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/%E7%BD%91%E5%8D%A1/" rel="tag">网卡</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2021/03/07/linux/release/VM0%E5%92%8CVM8%E5%92%8CVM1%E7%9A%84%E5%8C%BA%E5%88%AB/">
-            <time datetime="2021-03-07T13:54:54.000Z" itemprop="datePublished">2021-03-07</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/linux/release/VM0和VM8和VM1的区别.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/linux/release/VM0和VM8和VM1的区别.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/linux/release/VM0和VM8和VM1的区别.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2021/03/07/linux/release/VM0%E5%92%8CVM8%E5%92%8CVM1%E7%9A%84%E5%8C%BA%E5%88%AB/">VM0和VM8和VM1的区别</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h2 id="VM0和VM8和VM1的区别"><a href="#VM0和VM8和VM1的区别" class="headerlink" title="VM0和VM8和VM1的区别"></a>VM0和VM8和VM1的区别</h2><h2 id="vmnet0，实际上就是一个虚拟的网桥"><a href="#vmnet0，实际上就是一个虚拟的网桥" class="headerlink" title="vmnet0，实际上就是一个虚拟的网桥"></a><strong>vmnet0，实际上就是一个虚拟的网桥</strong></h2><p>vmnet0，实际上就是一个虚拟的网桥，这个网桥有很若干个端口，一个端口用于连接你的Host，一个端口用于连接你的虚拟机，他们的位置是对等的，谁也不是谁的网关。所以在Bridged模式下，你可以让虚拟机成为一台和你的Host相同地位的机器。</p>
-<h2 id="vmnet1，这是一个Host-Only网络模式"><a href="#vmnet1，这是一个Host-Only网络模式" class="headerlink" title="vmnet1，这是一个Host-Only网络模式"></a><strong>vmnet1，这是一个Host-Only网络模式</strong></h2><p>vmnet1，这是一个Host-Only网络模式，这是用于建立一个与世隔绝的网络环境所用到的，其中vmnet1也是一个虚拟的交换机，交换机的一个 端口连接到你的Host上，另外一个端口连接到虚拟的DHCP服务器上（实际上是vmware的一个组件），另外剩下的端口就是连虚拟机了。虚拟网卡 “VMWare Virtual Ethernet Adapter for VMnet1”作为虚拟机的网关接口，为虚拟机提供服务。在虚拟机启动之后，如果你用ipconfig命令，你会很清楚的看到，你的默认网关就是指向 “VMWare Virtual Ethernet Adapter for VMnet1”网卡的地址的。（实际上它并不能提供路由，这是VMware设计使然，它是干了除了提供路由之外的一些事情——实际上是我也不知道它干了什 么事情），这里没有提供路由主要表现在没有提供NAT服务，使得虚拟机不可以访问Host-Only模式所指定的网段之外的地址。</p>
-<h2 id="vmnet8，这是一个NAT方式，最简单的组网方式了"><a href="#vmnet8，这是一个NAT方式，最简单的组网方式了" class="headerlink" title="vmnet8，这是一个NAT方式，最简单的组网方式了"></a><strong>vmnet8，这是一个NAT方式，最简单的组网方式了</strong></h2><p>vmnet8，这是一个NAT方式，最简单的组网方式了，从主机的“VMWare Virtual Ethernet Adapter for VMnet8”虚拟网卡出来，连接到vmnet8虚拟交换机，虚拟交换机的另外的口连接到虚拟的NAT服务器（这也是一个Vmware组件），还有一个口 连接到虚拟DHCP服务器，其他的口连虚拟机，虚拟机的网关即是“VMWare Virtual Ethernet Adapter for VMnet8”网卡所在的机器，废话，这肯定就是你的Host机器啦。同样，用ipconfig也可以看出来，你的虚拟机的默认网关也指向了你的 “VMWare Virtual Ethernet Adapter for VMnet8”虚拟网卡地址。相比之下，可以看出来，NAT组网方式和Host-Only方式，区别就在于是否多了一个NAT服务。</p>
-<p>host-only与wmnet1虚拟网卡进行通信</p>
-<p>NAT模式与VMnet8虚拟网卡进行通信</p>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/2021/03/07/linux/release/VM0%E5%92%8CVM8%E5%92%8CVM1%E7%9A%84%E5%8C%BA%E5%88%AB/#more">查看更多</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-linux/日常笔记/查看linux_系统-文件是32位还是64位" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -3703,6 +3599,110 @@
             </div>   
             <div class="article-more-link">
                 <a href="/2021/03/07/%E6%95%B0%E6%8D%AE%E5%BA%93/release/mysql%E4%B8%ADdatetime%E6%AF%94%E8%BE%83/#more">查看更多</a>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-数据库/release/mysql导入数据" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE/" rel="tag">导入数据</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2021/03/07/%E6%95%B0%E6%8D%AE%E5%BA%93/release/mysql%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE/">
+            <time datetime="2021-03-07T12:19:17.000Z" itemprop="datePublished">2021-03-07</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/raw/writing/source/_posts/数据库/release/mysql导入数据.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/edit/writing/source/_posts/数据库/release/mysql导入数据.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/noahyzhang/Wiki-site/commits/writing/source/_posts/数据库/release/mysql导入数据.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2021/03/07/%E6%95%B0%E6%8D%AE%E5%BA%93/release/mysql%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE/">Mysql导入数据</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                    
+                    
+                
+                
+                    
+                    <p><h2 id="mysql-的导入数据"><a href="#mysql-的导入数据" class="headerlink" title="mysql 的导入数据"></a>mysql 的导入数据</h2><h3 id="一、mysql命令导入数据"><a href="#一、mysql命令导入数据" class="headerlink" title="一、mysql命令导入数据"></a>一、mysql命令导入数据</h3><p>使用 mysql 命令导入语法格式为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h `host` -P `port` -u `user` -p `passwd`  &lt;  data.sql</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、source-命令导入"><a href="#二、source-命令导入" class="headerlink" title="二、source 命令导入"></a>二、source 命令导入</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash">create database abc;      <span class="comment"># 创建数据库</span></span></span><br><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash">use abc;                  <span class="comment"># 使用已创建的数据库</span></span> </span><br><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash"><span class="built_in">set</span> names utf8;           <span class="comment"># 设置编码</span></span></span><br><span class="line"><span class="meta prompt_">mysql&gt; </span><span class="language-bash"><span class="built_in">source</span> /home/abc/abc.sql  <span class="comment"># 导入备份数据库</span></span></span><br></pre></td></tr></table></figure>
+
+<p>
+                
+            
+        
+        
+            </div>   
+            <div class="article-more-link">
+                <a href="/2021/03/07/%E6%95%B0%E6%8D%AE%E5%BA%93/release/mysql%E5%AF%BC%E5%85%A5%E6%95%B0%E6%8D%AE/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
